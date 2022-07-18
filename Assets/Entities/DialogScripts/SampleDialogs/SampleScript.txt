@@ -1,0 +1,20 @@
+<Filian>Hello?_
+<Intercom>*Static*_
+<Filian>Hello!!_
+<Intercom>*Static* Hel- *Static* Hello? Who is thi-s?_
+<Filian>Just your average Welches patron. I saw smoke coming from the Fruit Snack factory and decided to make my way over to see what was going on._
+<Intercom>*Static* You need to get out of here! The fru-*static* snack factory is under attack!_
+<Filian>That's... That's awful!!_
+<Filian>Who would do such a thing?!_
+<Intercom>They're coming! Flooding through all the perimeter gates and -*static* there's so *static* many!_
+<Intercom>The motts battalion.. They're destroying everything. Replacing the welch chemical pumps with their *static* sleazy mott juices!_
+<CHOICE>Those heinous mother-truckers.. They won't get away with this!|Cactus 10|I flooded your mom's perimeter gates last night *dabs*|Venus 10|I filled your mom with sleazy ju- actually that one's too much nevermind.|Cactus -10 Venus -10 Cash 15|There's gotta be some way I can help!!|Cactus -5 Venus -5|You're right. There isn't really anything I can do about this..|Cactus -10 Venus -10 Cash 15|_
+<Intercom>It wouldn't be right for us to drag a civilian into this... Listen, feel free to take whatever snack packs you can find in the rubble and run.._
+<Filian>No!_
+<Filian>I'm not running!_
+<Filian>Welches has been there for me when I needed them most._
+<Filian>Maybe it's finally time I got my chance to return the favor._
+<Intercom>I..._
+<Intercom>Please.._
+<Intercom>Whatever you do.. Be careful out there._
+<Filian>Lol No._
