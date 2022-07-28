@@ -81,7 +81,7 @@ public class ScriptReader : MonoBehaviour
     protected List<Dialog> script = new List<Dialog>();
     protected int convoPlace = 0;           // serialize
     protected Text[] lines;
-    protected float letterDelay = .015f;    // this gets modified to change rate of text reading (lower number is faster rate)
+    protected float letterDelay = .008f;    // this gets modified to change rate of text reading (lower number is faster rate)
     protected float currTimeDelta = 0;
     protected float skipDelay = .15f;
     protected float currSkipDelta = 0;

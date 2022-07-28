@@ -18,6 +18,8 @@ TagManager:
   - story-npc
   - PlayerBase
   - PlayerFlashbang
+  - background
+  - SnailRegion
   layers:
   - Default
   - TransparentFX

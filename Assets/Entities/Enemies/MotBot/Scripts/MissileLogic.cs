@@ -188,6 +188,18 @@ public class MissileLogic : WeaponLogicBase
         }
     }
 
+    public void SetExplosionFromExternal()
+    {
+        markForDestruction = true;
+        isTrackingOn = false;
+        isLaunching = false;
+        timeMarkedForDestruction = Time.time;
+        MissileController.SetBool("isExploding", true);
+        MissileSound.clip = MissileExplosion;
+        MissileSound.Play();
+        Collider.enabled = false;
+    }
+
     private bool isNonConcernedCollision(string collisionTag)
     {
         return collisionTag == "MainCamera" ||

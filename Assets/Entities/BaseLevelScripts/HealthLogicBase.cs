@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthLogicBase : MonoBehaviour
 {
     public float MaxHealth;
-    protected float CurrentHealth;
+    public float CurrentHealth;
     protected bool handleDeath;
     // Start is called before the first frame update
     void Start()

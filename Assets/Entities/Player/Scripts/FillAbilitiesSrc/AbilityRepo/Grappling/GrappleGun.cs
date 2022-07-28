@@ -29,7 +29,7 @@ public class GrappleGun : MonoBehaviour
 
     [Header("Distance:")]
     [SerializeField] private bool hasMaxDistance = false;
-    [SerializeField] private float maxDistnace = 20;
+    [SerializeField] private float maxDistance = 20;
 
     private enum LaunchType
     {
@@ -51,7 +51,7 @@ public class GrappleGun : MonoBehaviour
     [HideInInspector] public Vector2 grappleDistanceVector;
 
     GameObject AbilityHandler;
-
+    Transform GrappledObject;
     private void Start()
     {
         grappleRope.enabled = false;
@@ -82,7 +82,7 @@ public class GrappleGun : MonoBehaviour
         {
             if (grappleRope.enabled)
             {
-                
+                grapplePoint = GrappledObject.transform.position;
                 RotateGun(grapplePoint, false);
             }
             else
@@ -96,8 +96,9 @@ public class GrappleGun : MonoBehaviour
                 if (launchType == LaunchType.Transform_Launch)
                 {
                     Debug.Log("Grappling");
-                    Vector2 firePointDistnace = firePoint.position - gunHolder.localPosition;
-                    Vector2 targetPos = grapplePoint - firePointDistnace;
+                    grapplePoint = GrappledObject.transform.position;
+                    Vector2 firePointDistance = firePoint.position - gunHolder.localPosition;
+                    Vector2 targetPos = grapplePoint - firePointDistance;
                     gunHolder.position = Vector2.Lerp(gunHolder.position, targetPos, Time.deltaTime * launchSpeed);
                 }
             }
@@ -142,9 +143,10 @@ public class GrappleGun : MonoBehaviour
                 Debug.Log(_hit.transform.gameObject.layer);
             if (_hit)
             {
-                if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance)
+                if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistance || !hasMaxDistance)
                 {
-                    grapplePoint = _hit.point;
+                    GrappledObject = _hit.transform;
+                    grapplePoint = _hit.transform.position;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
                     Debug.Log("Grapple Point Set");
@@ -198,7 +200,7 @@ public class GrappleGun : MonoBehaviour
         if (firePoint != null && hasMaxDistance)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(firePoint.position, maxDistnace);
+            Gizmos.DrawWireSphere(firePoint.position, maxDistance);
         }
     }
 }

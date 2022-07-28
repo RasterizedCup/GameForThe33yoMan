@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /*
@@ -42,8 +43,8 @@ public class FilAbilityHandler : FilAbilities
             { AbilityType.PhaseShift, checkPhaseShift },
             { AbilityType.FillyCopter, checkFillyCopter },
             { AbilityType.Snailian, checkSnailian}
-            // dont register grappling hook
-            // can dynamically add abilities to FilAbilities later on
+            // dont register grappling hook, this has to be handle in it's own way
+
         };
         AbilityToggler = GameObject.Find("FilAbilityToggleSound").GetComponent<AudioSource>();
     }
@@ -96,6 +97,7 @@ public class FilAbilityHandler : FilAbilities
 
     void handlePrimaryAbility()
     {
+        SetupAbilityUI();
         if (Input.GetKey(KeyCode.LeftShift) || AbilityIsActive && ActiveAbility != AbilityType.GrapplingHook)
         {
             AbilityIsActive = (bool)AbilityMap[ActiveAbility].DynamicInvoke();
@@ -123,9 +125,55 @@ public class FilAbilityHandler : FilAbilities
         }
     }
 
+    public void SetupAbilityUI()
+    {
+        if (Snailian.isSnailianAllowed)
+        {
+            if (PrimaryAbility == AbilityType.Snailian)
+            {
+                PrimaryRef.GetComponent<Text>().color = Color.green;
+                return;
+            }
+            else if(SecondaryAbility == AbilityType.Snailian)
+            {
+                SecondaryRef.GetComponent<Text>().color = Color.green;
+                return;
+            }           
+        }
+
+        // de-set whatever snail abilities are left over (sprite? Rotation)
+
+        // also disable all other things here
+        if (ActiveAbility == AbilityType.Snailian)
+        {
+            snailian.filSprite.color = new Color(snailian.filSprite.color.r, snailian.filSprite.color.g, snailian.filSprite.color.b, 1);
+            snailian.SnailSprite.color = new Color(snailian.filSprite.color.r, snailian.filSprite.color.g, snailian.filSprite.color.b, 0);
+            snailian.Snailimator.enabled = false;
+            snailian.rb2d.bodyType = RigidbodyType2D.Dynamic;
+            Snailian.isSnailianPrimed = false;
+            Snailian.isSnailianActive = false;
+            snailian.SnailModeEnabled = false;
+        }
+        if (PrimaryAbility == AbilityType.Snailian)
+        {
+            PrimaryRef.GetComponent<Text>().color = Color.red;
+            return;
+        }
+        else if (SecondaryAbility == AbilityType.Snailian)
+        {
+            SecondaryRef.GetComponent<Text>().color = Color.red;
+            return;
+        }
+    }
+
     public static string GetCurrentPrimaryAbilityName()
     {
-        return ActiveAbility.ToString();
+        return MapAbilityEnumToString(PrimaryAbility);
+    }
+
+    public static string GetCurrentSecondaryAbilityName()
+    {
+        return MapAbilityEnumToString(SecondaryAbility);
     }
 
     public static void AssignPrimaryAbility(AbilityType abilityToAssign)
@@ -136,5 +184,24 @@ public class FilAbilityHandler : FilAbilities
     public static void AssignSecondaryAbility(AbilityType abilityToAssign)
     {
         SecondaryAbility = abilityToAssign;
+    }
+
+    public static string MapAbilityEnumToString(AbilityType abilityToString)
+    {
+        switch (abilityToString)
+        {
+            case AbilityType.FillyCopter:
+                return "Filly Copter";
+            case AbilityType.PhaseShift:
+                return "Nyoom";
+            case AbilityType.GrapplingHook:
+                return "Grappling Hook";
+            case AbilityType.Snailian:
+                return "Snailian";
+            case AbilityType.None:
+                return "Nothing";
+            default:
+                return "Lol something broke in the Enum to string mapping";
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,19 +15,21 @@ public class FilAttacks : MonoBehaviour
     public bool isDoubleJumping;
 
     // single throwing knife attack
+    GameObject Knife, Fan;
     public GameObject ThrowingKnife;
     public float knifeDelay;
 
     // triple throwing fan attack
     public List<GameObject> ThrowingFans;
     public float fanDelay;
-
-    // laser beam attack
-
+    public ThrowingKnifeAttack throwingKnifeAttack;
+    public ThrowingFanAttack throwingFanAttack;
     float currTime;
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        Knife = Resources.Load("FilThrowingKnife") as GameObject;
+        Fan = Resources.Load("FilThrowingFanMid") as GameObject;
         currTime = 0 - fanDelay; // allow immediate fire of either ability (weird fault of starting state)
         Abilityhander = GameObject.Find("FilAbilities").GetComponent<FilAbilityHandler>();
         sprite = GameObject.FindGameObjectWithTag("FilSprite").GetComponent<Transform>();
@@ -39,14 +42,15 @@ public class FilAttacks : MonoBehaviour
     protected virtual void Update()
     {
     }
-
+    /*
     protected bool throwingStarSingleAttack()
     {
         if (!attackInProgress && Time.time >= currTime + knifeDelay)
         {
             currTime = Time.time;
             attackInProgress = true;
-            Instantiate(ThrowingKnife);
+            var freshKnife = Instantiate(Knife);
+            freshKnife.name = Guid.NewGuid().ToString() + "Knife";
         }
 
         // rotate sprite X 360 degrees through delta time
@@ -57,31 +61,16 @@ public class FilAttacks : MonoBehaviour
             return handleSpin();
         }
         return false;
+    }*/
+
+    protected bool checkThrowingStarSingleAttack()
+    {
+        return throwingKnifeAttack.throwingStarSingleAttack();
     }
 
-    protected bool ThrowingStarFanAttack()
+    protected bool checkThrowingStarFanAttack()
     {
-        if (!attackInProgress & Time.time >= currTime + fanDelay)
-        {
-            attackInProgress = true;
-            currTime = Time.time;
-            float rotationAngle = -10;
-            foreach (var fan in ThrowingFans)
-            {
-                var freshFan = Instantiate(fan);
-                freshFan.transform.Rotate(new Vector3(0, 0, rotationAngle));
-                rotationAngle += 10;
-            }
-        }
-
-        // rotate sprite X 360 degrees through delta time
-        // toggle a check at greater than 180 so we know to reset it once we are lower than 180 again
-
-        if (attackInProgress)
-        {
-            return handleSpin();
-        }
-        return false;
+        return throwingFanAttack.ThrowingStarFanAttack();
     }
 
     protected bool LaserBeam()

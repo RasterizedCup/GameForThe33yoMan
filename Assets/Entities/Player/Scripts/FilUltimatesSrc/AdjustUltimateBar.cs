@@ -31,6 +31,7 @@ public class AdjustUltimateBar : MonoBehaviour
     float displayKillCount;
     public static bool killDisplay;
     float displayStartTime;
+    Text UltReadyTextDisplay;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,9 @@ public class AdjustUltimateBar : MonoBehaviour
         displayKillCount = 0;
         maxWidth = currentUltCharge.rect.width;
         baseXOffset = currentUltCharge.localPosition.x;
+
+        // get ult name gameObj reference
+        UltReadyTextDisplay = GameObject.Find("UltimateReadyTextDisplay").GetComponent<Text>();
 
         // get ult rectangle angles
         diagMaxLength = diag.sizeDelta.x;
@@ -73,8 +77,15 @@ public class AdjustUltimateBar : MonoBehaviour
         currentUltCharge.sizeDelta = new Vector2(currStaminaWidth, currentUltCharge.sizeDelta.y);
         currentUltCharge.localPosition = new Vector3(posXoffset, currentUltCharge.localPosition.y, 0);
 
+        // update display name if ult has changed
+        if (!UltReadyTextDisplay.text.Contains(FilUltimateHandler.GetStringFromActiveUltimateTime()))
+        {
+            UltReadyTextDisplay.text = $"{FilUltimateHandler.GetStringFromActiveUltimateTime()} Ready";
+        }
+
         return percentDecreasedFromBase > .99f;
     }
+
 
     void interpolateToCompletedUltBar(bool ultIsCharged)
     {

@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class ThrowingKnife : FilProjectile
 {
-    void Start()
+    float maxLifeduration;
+    float currLifeDuration;
+
+    void OnEnable()
     {
         soundSource = GetComponent<AudioSource>();
+
+        maxLifeduration = 6;
+        currLifeDuration = Time.time + maxLifeduration;
 
         this.transform.position = GameObject.Find("Bubble Player").transform.position;
         mousePosition = Input.mousePosition;
@@ -38,7 +44,7 @@ public class ThrowingKnife : FilProjectile
             travelToPos.Normalize();
             transform.Translate(travelToPos * Time.deltaTime * velocity);
         }
-        else
+        else // despawn after impact
         {
             if (primingDestroy)
             {
@@ -52,6 +58,12 @@ public class ThrowingKnife : FilProjectile
             {
                 Destroy(this.gameObject);
             }
+        }
+        // despawn after a period of time anyway
+        if (!markForDestruction && currLifeDuration < Time.time)
+        {
+            Debug.Log("Destroying");
+            Destroy(this.gameObject);
         }
     }
 
@@ -79,7 +91,9 @@ public class ThrowingKnife : FilProjectile
             collisionTag == "ThrowingKnife" ||
             collisionTag == "FilSprite" ||
             collisionTag == "PlayerProximity" ||
+            collisionTag == "background" ||
             collisionTag == "PlayerFlashbang" ||
+            collisionTag == "SnailRegion" ||
             collisionTag == "FOVcontrol";
     }
 }

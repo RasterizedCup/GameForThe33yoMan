@@ -5,30 +5,26 @@ using UnityEngine;
 
 public class FilAttackHandler : FilAttacks
 {
-    public FilAttacks attacks;
     Dictionary<AttackType, Func<bool>> AttackMap;
 
     // need set of premium attacks and standard attacks to distinguish
 
-    AttackType PrimaryAttack, SecondaryAttack, PremiumAttack;
-    bool PrimaryAttackIsActive, SecondaryAttackIsActive, premiumAttackIsActive;
+    public static AttackType PrimaryAttack, SecondaryAttack;
+    bool PrimaryAttackIsActive, SecondaryAttackIsActive;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
         PrimaryAttack = AttackType.ThrowingStarSingle;
         SecondaryAttack = AttackType.ThrowingStarFan;
-        PremiumAttack = AttackType.LaserBeam;
 
         PrimaryAttackIsActive = false;
         SecondaryAttackIsActive = false;
-        premiumAttackIsActive = false;
 
         AttackMap = new Dictionary<AttackType, Func<bool>>
         {
-            { AttackType.ThrowingStarFan, ThrowingStarFanAttack },
-            { AttackType.ThrowingStarSingle, throwingStarSingleAttack },
-            { AttackType.LaserBeam, LaserBeam },
+            { AttackType.ThrowingStarFan, checkThrowingStarFanAttack },
+            { AttackType.ThrowingStarSingle, checkThrowingStarSingleAttack },
             // can dynamically add attacks to FilAttacks later on
         };
     }
@@ -68,5 +64,15 @@ public class FilAttackHandler : FilAttacks
         {
             SecondaryAttackIsActive = (bool)AttackMap[SecondaryAttack].DynamicInvoke();
         }
+    }
+
+    public static void AssignPrimaryAttack(AttackType attackToAssign)
+    {
+        PrimaryAttack = attackToAssign;
+    }
+
+    public static void AssignSecondaryAttack(AttackType attackToAssign)
+    {
+        SecondaryAttack = attackToAssign;
     }
 }

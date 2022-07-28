@@ -29,6 +29,9 @@ public class FilHealth : HealthLogicBase
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("SnailRegion"))
+            Snailian.isSnailianAllowed = true;
+
         // TODO: get tag dictionary for enemy weapons
         if (collision.CompareTag("Missile") && !this.gameObject.CompareTag("PlayerInvis"))
         {
@@ -46,5 +49,19 @@ public class FilHealth : HealthLogicBase
                 CurrentHealth = CurrentHealth + 10 > MaxHealth ? MaxHealth : CurrentHealth + 10;
             }
         }
+    }
+
+    // set statuses on character
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("SnailRegion"))
+            Snailian.isSnailianAllowed = true;
+    }
+
+    // unset statuses upon character exit
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("SnailRegion"))
+            Snailian.isSnailianAllowed = false;
     }
 }

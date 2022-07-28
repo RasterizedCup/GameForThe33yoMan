@@ -6,6 +6,5 @@ public enum AttackType
 {
     None,
     ThrowingStarSingle,
-    ThrowingStarFan,
-    LaserBeam
+    ThrowingStarFan
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FilUltimates : MonoBehaviour
 {
     public Flashbang flashbang;
-
+    public LaserBeam laserbeam;
     public float maxUltCharge;
     public float ultChargeRegenRate;
     public static float currentUltCharge;
@@ -36,5 +36,10 @@ public class FilUltimates : MonoBehaviour
     protected bool handleFlashbang()
     {
         return flashbang.handleFlashbang();
+    }
+
+    protected bool handleLaserBeam()
+    {
+        return laserbeam.HandleLaserBeam();
     }
 }

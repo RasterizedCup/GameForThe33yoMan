@@ -15,6 +15,8 @@ public class MotBotHealth : HealthLogicBase
     void Update()
     {
         checkForDeath();
+        if (CurrentHealth <= 0)
+            handleDeath = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

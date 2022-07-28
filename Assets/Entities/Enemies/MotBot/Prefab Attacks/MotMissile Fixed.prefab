@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3626643095342912820}
   - component: {fileID: 3626643095342912824}
   - component: {fileID: -8927738127210344765}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MotMissile Fixed
   m_TagString: Missile
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 5419268667675602151}
   - component: {fileID: 5998808659987052925}
   - component: {fileID: 6744015524266629642}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MotMissileEntity
   m_TagString: Missile
   m_Icon: {fileID: 0}
@@ -220,9 +220,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

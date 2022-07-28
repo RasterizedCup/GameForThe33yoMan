@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FilAbilities : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class FilAbilities : MonoBehaviour
     public Jumping jumping;
     public FillyCopter fillyCopter;
     public Snailian snailian;
+
+    public GameObject PrimaryRef, SecondaryRef;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -59,6 +62,11 @@ public class FilAbilities : MonoBehaviour
 
     protected bool checkSnailian()
     {
-        return snailian.handleSnailianMovement();
+        if (Snailian.isSnailianAllowed)
+        {
+            return snailian.handleSnailianMovement(); // be sure to handle disabling all features if false
+        }
+        // set ability disp color red
+        return false;
     }
 }

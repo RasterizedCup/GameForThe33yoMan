@@ -106,7 +106,7 @@ public class Jumping : MonoBehaviour
         }
     }
 
-    // Coyote time allows us to let the player jump 1 frame after they have left a platform
+    // Coyote time allows us to let the player jump N frame after they have left a platform
     // feels better for player
     public void setCoyote()
     {

@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ThrowingFan : FilProjectile
 {
+    float maxLifeduration;
+    float currLifeDuration;
     protected virtual void Start()
     {
         soundSource = GetComponent<AudioSource>();
+
+        maxLifeduration = 6;
+        currLifeDuration = Time.time + maxLifeduration;
 
         this.transform.position = GameObject.Find("Bubble Player").transform.position;
 
@@ -39,6 +44,11 @@ public class ThrowingFan : FilProjectile
                 Destroy(this.gameObject);
             }
         }
+
+        if (!markForDestruction && currLifeDuration < Time.time)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,10 +71,13 @@ public class ThrowingFan : FilProjectile
         return collisionTag == "MainCamera" ||
             collisionTag == "CamBound" ||
             collisionTag == "Player" ||
+            collisionTag == "PlayerInvis" ||
             collisionTag == "ThrowingKnife" ||
             collisionTag == "FilSprite" ||
             collisionTag == "PlayerProximity" ||
+            collisionTag == "background" ||
             collisionTag == "PlayerFlashbang" ||
+            collisionTag == "SnailRegion" ||
             collisionTag == "FOVcontrol";
     }
 }
