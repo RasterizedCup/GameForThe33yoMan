@@ -19,6 +19,7 @@ public class FillyCopter : MonoBehaviour
     public AudioClip FillyCopterSound;
     public static AudioSource AbilityTrigger;
     public static bool isFillyCoptering;
+    public float initialBurstCost;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +37,18 @@ public class FillyCopter : MonoBehaviour
         if (!Input.GetKey(KeyCode.LeftShift))
             return false;
         if (FilAbilities.currentStamina > FillyCopterMinStartStaminaCost)
+        {
             canStartCopter = true;
+         //   if (!isFillyCoptering) // burst remove stamina on start to prevent feathering
+         //       FilAbilities.currentStamina -= initialBurstCost;
+
+        }
         if (canStartCopter)
         {
             HandleCopterSpin(); // rotate on a delta'd basin
             if (!isFillyCoptering)
             {
+                FilAbilities.currentStamina -= initialBurstCost;
                 // handle audio init here
                 AbilityTrigger.clip = FillyCopterSound;
                 AbilityTrigger.Play();

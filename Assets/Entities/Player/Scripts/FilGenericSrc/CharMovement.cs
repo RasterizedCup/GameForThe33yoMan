@@ -27,7 +27,7 @@ public class CharMovement : CharStats
     // Start is called before the first frame update
     void Start()
     {
-        Screen.SetResolution(1920, 1080, false);
+       // Screen.SetResolution(1920, 1080, FullScreenMode.MaximizedWindow, 60);
         Application.targetFrameRate = 60;
         feet = GetComponentInChildren<Transform>();
         rb2d = GetComponent<Rigidbody2D>();

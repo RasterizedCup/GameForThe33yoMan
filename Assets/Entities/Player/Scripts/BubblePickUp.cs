@@ -14,12 +14,11 @@ public class BubblePickUp : MonoBehaviour
 
     public void incrBubbleCount(){
         bubbCount++;
-        Debug.Log(bubbCount + " bubbles collected");
         if(bubbCount >= bubbMax)
         {
-            //this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue; // test
             Debug.Log("Ur doin a win!!!");
         }
+        FilAbilities.currentStamina = FilAbilities.maxStamina;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

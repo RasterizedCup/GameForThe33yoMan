@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class FilStat
+public static class FilState
 {
-    
+    public static float currency;
 }

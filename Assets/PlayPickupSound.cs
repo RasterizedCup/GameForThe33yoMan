@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayPickupSound : MonoBehaviour
 {
     int baseCount;
-    AudioSource pickupNoise;
+    static AudioSource pickupNoise;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +22,10 @@ public class PlayPickupSound : MonoBehaviour
             baseCount--;
             pickupNoise.Play();
         }
+    }
+
+    public static void playPickup()
+    {
+        pickupNoise.Play();
     }
 }

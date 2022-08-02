@@ -82,7 +82,9 @@ public class GrappleGun : MonoBehaviour
         {
             if (grappleRope.enabled)
             {
+                // setting these on hold allows grapple pos to be updated for moving objects
                 grapplePoint = GrappledObject.transform.position;
+                m_springJoint2D.connectedAnchor = grapplePoint;
                 RotateGun(grapplePoint, false);
             }
             else

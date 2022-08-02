@@ -11,7 +11,7 @@ public class FilAbilities : MonoBehaviour
     public float staminaRegenRate;
     public float baseStamina;
     public static float currentStamina; // referenced in ability composites
-
+    public static float maxStamina;
     // Ability Objects
     public PhaseShift phaseShift;
     public Jumping jumping;
@@ -23,6 +23,7 @@ public class FilAbilities : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        maxStamina = baseStamina;
         currentStamina = baseStamina;
         spriteRenderer = GameObject.Find("FilSprite").GetComponent<SpriteRenderer>();
     }

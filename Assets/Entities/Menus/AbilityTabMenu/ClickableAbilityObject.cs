@@ -21,6 +21,7 @@ public class ClickableAbilityObject : MonoBehaviour, IPointerClickHandler, IPoin
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("assigning ability");
         // standard select
         if (eventData.button == PointerEventData.InputButton.Left)
         {

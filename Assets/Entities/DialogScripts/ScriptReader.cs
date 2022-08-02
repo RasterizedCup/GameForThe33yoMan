@@ -98,11 +98,6 @@ public class ScriptReader : MonoBehaviour
     protected float shakeDelay = .01f;      // modify this to change the shake rate (lower number is higher rate)
     protected float shakeIntensity = 20f;   // modify this to change the intensity of the shake (lower number is higher intensity)
     protected Vector3 textbasePos;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Screen.SetResolution(1920, 1080, true);
-    }
 
     // for decision branches
 

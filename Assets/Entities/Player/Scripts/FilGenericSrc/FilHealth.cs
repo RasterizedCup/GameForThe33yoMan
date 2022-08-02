@@ -40,7 +40,9 @@ public class FilHealth : HealthLogicBase
             // we must get the parent component to get Weapon logic -> damage
             CurrentHealth -= collision.gameObject.GetComponentInParent<WeaponLogicBase>().damage;
             if (CurrentHealth <= 0)
-                handleDeath = true;
+            {
+               // handleDeath = true; // set this true for PRODUCTION
+            }
         }
 
         if (collision.CompareTag("Tapioca"))
@@ -48,6 +50,13 @@ public class FilHealth : HealthLogicBase
             if (CurrentHealth < MaxHealth) {
                 CurrentHealth = CurrentHealth + 10 > MaxHealth ? MaxHealth : CurrentHealth + 10;
             }
+        }
+
+        if (collision.CompareTag("DeathRegion"))
+        {
+            DeathCounterIncrement.deathCount++;
+            GameObject.Find("Bubble Player").transform.position =
+                collision.GetComponent<DeathHandler>().resetPosition;
         }
     }
 

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class AdjustStaminaBar : MonoBehaviour
 {
     // Start is called before the first frame update
-    GameObject ActiveStaminaAbilityText;
     public RectTransform currStamina;
     public RectTransform maxStamina;
     public RectTransform StaminaDisplayName;
@@ -19,17 +18,12 @@ public class AdjustStaminaBar : MonoBehaviour
     float maxWidth;
     float baseXOffset; // needed to combat any default offset for canvas
     public float fadeRate;
-    Color baseColor, fadedColor;
     void Start()
     {
         PrimaryAbilityDispName = GameObject.Find("StaminaPrimaryAbility");
         SecondaryAbilityDispName = GameObject.Find("StaminaSecondaryAbility");
-        ActiveStaminaAbilityText = GameObject.Find("StaminaMovementAbilityName");
         maxWidth = currStamina.rect.width;
         baseXOffset = currStamina.localPosition.x;
-        Debug.Log(StaminaBarTargetName);
-        baseColor = new Color(50, 50, 50, 1);
-        fadedColor = new Color(50, 50, 50, .4f);
     }
 
     // Update is called once per frame
@@ -60,9 +54,8 @@ public class AdjustStaminaBar : MonoBehaviour
         if (FilAbilityHandler.ActiveAbility == FilAbilityHandler.PrimaryAbility)
         {
             PrimaryAbilityDispName.GetComponent<Text>().fontSize = 14;
-            SecondaryAbilityDispName.GetComponent<Text>().fontSize = 12;
-            PrimaryAbilityDispName.GetComponent<Text>().fontSize = 14;
-            SecondaryAbilityDispName.GetComponent<Text>().fontSize = 12;
+            SecondaryAbilityDispName.GetComponent<Text>().fontSize = 11;
+
             PrimaryAbilityDispName.GetComponent<Text>().color = new Color(
                 PrimaryAbilityDispName.GetComponent<Text>().color.r,
                 PrimaryAbilityDispName.GetComponent<Text>().color.g,
@@ -77,9 +70,8 @@ public class AdjustStaminaBar : MonoBehaviour
         else
         {
             SecondaryAbilityDispName.GetComponent<Text>().fontSize = 14;
-            PrimaryAbilityDispName.GetComponent<Text>().fontSize = 12;
-            SecondaryAbilityDispName.GetComponent<Text>().fontSize = 14;
-            PrimaryAbilityDispName.GetComponent<Text>().fontSize = 12;
+            PrimaryAbilityDispName.GetComponent<Text>().fontSize = 11;
+
             PrimaryAbilityDispName.GetComponent<Text>().color = new Color(
                 PrimaryAbilityDispName.GetComponent<Text>().color.r,
                 PrimaryAbilityDispName.GetComponent<Text>().color.g,

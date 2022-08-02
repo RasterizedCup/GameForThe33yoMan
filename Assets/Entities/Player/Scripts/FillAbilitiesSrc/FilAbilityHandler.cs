@@ -22,9 +22,12 @@ public class FilAbilityHandler : FilAbilities
     public static AbilityType PrimaryAbility, SecondaryAbility;
     public static AbilityType ActiveAbility;
     public static AbilityType toHotSwap;
-    bool AbilityIsActive, SecondaryAbilityIsActive;
+    bool AbilityIsActive;
     bool OnePassAbilityReset;
     AudioSource AbilityToggler;
+
+    Color fadedButAvailable;
+    Color fadedUnavailable;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -35,7 +38,6 @@ public class FilAbilityHandler : FilAbilities
         GrappleRootObject = GameObject.Find("GrapplePivot");
         GrappleRootObject.SetActive(false);
         AbilityIsActive = false;
-        SecondaryAbilityIsActive = false;
         OnePassAbilityReset = false;
 
         AbilityMap = new Dictionary<AbilityType, Func<bool>>
@@ -47,6 +49,9 @@ public class FilAbilityHandler : FilAbilities
 
         };
         AbilityToggler = GameObject.Find("FilAbilityToggleSound").GetComponent<AudioSource>();
+
+        fadedButAvailable = new Color(0, 255, 0, .4f); // faded green
+        fadedUnavailable = new Color(255, 0, 0, .4f); // faded red
     }
 
     // Update is called once per frame
@@ -129,16 +134,33 @@ public class FilAbilityHandler : FilAbilities
     {
         if (Snailian.isSnailianAllowed)
         {
-            if (PrimaryAbility == AbilityType.Snailian)
-            {
-                PrimaryRef.GetComponent<Text>().color = Color.green;
-                return;
-            }
-            else if(SecondaryAbility == AbilityType.Snailian)
-            {
-                SecondaryRef.GetComponent<Text>().color = Color.green;
-                return;
-            }           
+            PrimaryRef.GetComponent<Text>().color = (PrimaryAbility == ActiveAbility) ?
+                Color.green : fadedButAvailable;
+            SecondaryRef.GetComponent<Text>().color = (SecondaryAbility == ActiveAbility) ?
+                Color.green : fadedButAvailable;
+            return;
+        }
+
+        if (PrimaryAbility != AbilityType.Snailian)
+        {               
+            PrimaryRef.GetComponent<Text>().color = (PrimaryAbility == ActiveAbility) ?
+                Color.green : fadedButAvailable;
+        }
+        if (SecondaryAbility != AbilityType.Snailian)
+        {
+            SecondaryRef.GetComponent<Text>().color = (SecondaryAbility == ActiveAbility) ?
+                Color.green : fadedButAvailable;
+        }
+
+        if (PrimaryAbility == AbilityType.Snailian)
+        {
+            PrimaryRef.GetComponent<Text>().color = (PrimaryAbility == ActiveAbility) ?
+                Color.red : fadedUnavailable;
+        }
+        if (SecondaryAbility == AbilityType.Snailian)
+        {
+            SecondaryRef.GetComponent<Text>().color = (SecondaryAbility == ActiveAbility) ?
+                Color.red : fadedUnavailable;
         }
 
         // de-set whatever snail abilities are left over (sprite? Rotation)
@@ -146,6 +168,10 @@ public class FilAbilityHandler : FilAbilities
         // also disable all other things here
         if (ActiveAbility == AbilityType.Snailian)
         {
+            // only deset rotation one time
+            if(Snailian.isSnailianActive)
+                GameObject.Find("Bubble Player").transform.rotation = Quaternion.Euler(0, 0, 0);
+
             snailian.filSprite.color = new Color(snailian.filSprite.color.r, snailian.filSprite.color.g, snailian.filSprite.color.b, 1);
             snailian.SnailSprite.color = new Color(snailian.filSprite.color.r, snailian.filSprite.color.g, snailian.filSprite.color.b, 0);
             snailian.Snailimator.enabled = false;
@@ -153,16 +179,6 @@ public class FilAbilityHandler : FilAbilities
             Snailian.isSnailianPrimed = false;
             Snailian.isSnailianActive = false;
             snailian.SnailModeEnabled = false;
-        }
-        if (PrimaryAbility == AbilityType.Snailian)
-        {
-            PrimaryRef.GetComponent<Text>().color = Color.red;
-            return;
-        }
-        else if (SecondaryAbility == AbilityType.Snailian)
-        {
-            SecondaryRef.GetComponent<Text>().color = Color.red;
-            return;
         }
     }
 

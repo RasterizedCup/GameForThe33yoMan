@@ -37,7 +37,7 @@ public class PhaseShift : MonoBehaviour
 
     public bool checkPhaseShift()
     {
-        if (phaseStaminaCost < FilAbilities.currentStamina)
+        if (phaseStaminaCost < FilAbilities.currentStamina && canPhaseShift)
         {
             isPhaseShifting = true;
 
@@ -100,6 +100,7 @@ public class PhaseShift : MonoBehaviour
             if (currPhaseTime + phaseForceCoolDownDuration < Time.time)
             {
                 canPhaseShift = true;
+                return false; // force return false at the end of ability to require re-trigger
             }
             return true;
         }

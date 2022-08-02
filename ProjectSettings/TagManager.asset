@@ -20,6 +20,7 @@ TagManager:
   - PlayerFlashbang
   - background
   - SnailRegion
+  - DeathRegion
   layers:
   - Default
   - TransparentFX
