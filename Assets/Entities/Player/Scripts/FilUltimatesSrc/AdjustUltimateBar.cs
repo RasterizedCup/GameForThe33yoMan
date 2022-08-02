@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AdjustUltimateBar : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class AdjustUltimateBar : MonoBehaviour
     float displayKillCount;
     public static bool killDisplay;
     float displayStartTime;
-    Text UltReadyTextDisplay;
+    TextMeshProUGUI UltReadyTextDisplay;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +42,7 @@ public class AdjustUltimateBar : MonoBehaviour
         baseXOffset = currentUltCharge.localPosition.x;
 
         // get ult name gameObj reference
-        UltReadyTextDisplay = GameObject.Find("UltimateReadyTextDisplay").GetComponent<Text>();
+        UltReadyTextDisplay = GameObject.Find("UltimateReadyTextDisplay").GetComponent<TextMeshProUGUI>();
 
         // get ult rectangle angles
         diagMaxLength = diag.sizeDelta.x;
@@ -56,7 +57,7 @@ public class AdjustUltimateBar : MonoBehaviour
         topRect.sizeDelta = new Vector2(0, topRect.sizeDelta.y);
         bottomtRect.sizeDelta = new Vector2(0, bottomtRect.sizeDelta.y);
 
-        UltText.GetComponent<Text>().color = new Color(UltText.GetComponent<Text>().color.r, UltText.GetComponent<Text>().color.g, UltText.GetComponent<Text>().color.b, 0);
+        UltText.GetComponent<TextMeshProUGUI>().color = new Color(UltText.GetComponent<TextMeshProUGUI>().color.r, UltText.GetComponent<TextMeshProUGUI>().color.g, UltText.GetComponent<TextMeshProUGUI>().color.b, 0);
 
     }
 
@@ -99,7 +100,7 @@ public class AdjustUltimateBar : MonoBehaviour
             if (!shouldDisplayReadyText)
             {
                 displayStartTime = Time.time;
-                UltText.GetComponent<Text>().color = new Color(UltText.GetComponent<Text>().color.r, UltText.GetComponent<Text>().color.g, UltText.GetComponent<Text>().color.b, 1);
+                UltText.GetComponent<TextMeshProUGUI>().color = new Color(UltText.GetComponent<TextMeshProUGUI>().color.r, UltText.GetComponent<TextMeshProUGUI>().color.g, UltText.GetComponent<TextMeshProUGUI>().color.b, 1);
                 shouldDisplayReadyText = true;
             }
             if (diag.sizeDelta.x < diagMaxLength)
@@ -127,7 +128,7 @@ public class AdjustUltimateBar : MonoBehaviour
         {
             if (shouldDisplayReadyText)
             {
-                UltText.GetComponent<Text>().color = new Color(UltText.GetComponent<Text>().color.r, UltText.GetComponent<Text>().color.g, UltText.GetComponent<Text>().color.b, 0);
+                UltText.GetComponent<TextMeshProUGUI>().color = new Color(UltText.GetComponent<TextMeshProUGUI>().color.r, UltText.GetComponent<TextMeshProUGUI>().color.g, UltText.GetComponent<TextMeshProUGUI>().color.b, 0);
                 shouldDisplayReadyText = false;
             }
             if (diag.sizeDelta.x > 0)
@@ -154,7 +155,7 @@ public class AdjustUltimateBar : MonoBehaviour
         else if(shouldDisplayReadyText || !ultIsCharged) // shortcut conditional to slightly help with efficiency, also base case to remove display
         {
             killDisplay = false;
-            UltText.GetComponent<Text>().color = new Color(UltText.GetComponent<Text>().color.r, UltText.GetComponent<Text>().color.g, UltText.GetComponent<Text>().color.b, 0);
+            UltText.GetComponent<TextMeshProUGUI>().color = new Color(UltText.GetComponent<TextMeshProUGUI>().color.r, UltText.GetComponent<TextMeshProUGUI>().color.g, UltText.GetComponent<TextMeshProUGUI>().color.b, 0);
             shouldDisplayReadyText = false;
             diag.sizeDelta = new Vector2(0, diag.sizeDelta.y);
             leftRect.sizeDelta = new Vector2(leftRect.sizeDelta.x, 0);

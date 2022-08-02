@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -9,10 +10,11 @@ public class MusicToggleTest : MonoBehaviour, IPointerClickHandler, IPointerEnte
 {
     Color defaultColor, selectedColor, hoverColor;
     public AudioSource music;
-    public Text musicText;
+    public GameObject musicText;
     bool toggleMusic;
     void Start()
     {
+
         toggleMusic = true;
         defaultColor = GetComponent<Image>().color;
         selectedColor = new Color(defaultColor.r, defaultColor.g, defaultColor.b, .5f);
@@ -24,12 +26,12 @@ public class MusicToggleTest : MonoBehaviour, IPointerClickHandler, IPointerEnte
         if (toggleMusic)
         {
             music.volume = .1f;
-            musicText.text = "Stop Music Pls";
+            musicText.GetComponent<TextMeshProUGUI>().text = "Stop Music Pls";
         }
         else
         {
             music.volume = 0;
-            musicText.text = "Start Music Pls";
+            musicText.GetComponent<TextMeshProUGUI>().text = "Start Music Pls";
         }
     }
 

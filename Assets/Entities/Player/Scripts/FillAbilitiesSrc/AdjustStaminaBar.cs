@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AdjustStaminaBar : MonoBehaviour
 {
@@ -48,39 +49,39 @@ public class AdjustStaminaBar : MonoBehaviour
 
     void setCurrentAbilityDisplay()
     {
-        PrimaryAbilityDispName.GetComponent<Text>().text = $"{FilAbilityHandler.GetCurrentPrimaryAbilityName()}";
-        SecondaryAbilityDispName.GetComponent<Text>().text = $"{FilAbilityHandler.GetCurrentSecondaryAbilityName()}";
+        PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().text = $"{FilAbilityHandler.GetCurrentPrimaryAbilityName()}";
+        SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().text = $"{FilAbilityHandler.GetCurrentSecondaryAbilityName()}";
 
         if (FilAbilityHandler.ActiveAbility == FilAbilityHandler.PrimaryAbility)
         {
-            PrimaryAbilityDispName.GetComponent<Text>().fontSize = 14;
-            SecondaryAbilityDispName.GetComponent<Text>().fontSize = 11;
+            PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().fontSize = 14;
+            SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().fontSize = 11;
 
-            PrimaryAbilityDispName.GetComponent<Text>().color = new Color(
-                PrimaryAbilityDispName.GetComponent<Text>().color.r,
-                PrimaryAbilityDispName.GetComponent<Text>().color.g,
-                PrimaryAbilityDispName.GetComponent<Text>().color.b,
+            PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().color = new Color(
+                PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.r,
+                PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.g,
+                PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.b,
                 1);
-            SecondaryAbilityDispName.GetComponent<Text>().color = new Color(
-                SecondaryAbilityDispName.GetComponent<Text>().color.r,
-                SecondaryAbilityDispName.GetComponent<Text>().color.g,
-                SecondaryAbilityDispName.GetComponent<Text>().color.b,
+            SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().color = new Color(
+                SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.r,
+                SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.g,
+                SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.b,
                 .4f);
         }
         else
         {
-            SecondaryAbilityDispName.GetComponent<Text>().fontSize = 14;
-            PrimaryAbilityDispName.GetComponent<Text>().fontSize = 11;
+            SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().fontSize = 14;
+            PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().fontSize = 11;
 
-            PrimaryAbilityDispName.GetComponent<Text>().color = new Color(
-                PrimaryAbilityDispName.GetComponent<Text>().color.r,
-                PrimaryAbilityDispName.GetComponent<Text>().color.g,
-                PrimaryAbilityDispName.GetComponent<Text>().color.b,
+            PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().color = new Color(
+                PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.r,
+                PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.g,
+                PrimaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.b,
                 .4f);
-            SecondaryAbilityDispName.GetComponent<Text>().color = new Color(
-                SecondaryAbilityDispName.GetComponent<Text>().color.r,
-                SecondaryAbilityDispName.GetComponent<Text>().color.g,
-                SecondaryAbilityDispName.GetComponent<Text>().color.b,
+            SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().color = new Color(
+                SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.r,
+                SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.g,
+                SecondaryAbilityDispName.GetComponent<TextMeshProUGUI>().color.b,
                 1);
         }
     }
@@ -106,11 +107,11 @@ public class AdjustStaminaBar : MonoBehaviour
                 maxStamina.gameObject.GetComponent<Image>().color.b,
                 Mathf.Max(maxStamina.gameObject.GetComponent<Image>().color.a - (fadeRate * Time.deltaTime), 0));
 
-            StaminaDisplayName.gameObject.GetComponent<Text>().color = new Color(
-                StaminaDisplayName.gameObject.GetComponent<Text>().color.r,
-                StaminaDisplayName.gameObject.GetComponent<Text>().color.g,
-                StaminaDisplayName.gameObject.GetComponent<Text>().color.b,
-                Mathf.Max(StaminaDisplayName.gameObject.GetComponent<Text>().color.a - (fadeRate * Time.deltaTime), 0));
+            StaminaDisplayName.gameObject.GetComponent<TextMeshProUGUI>().color = new Color(
+                StaminaDisplayName.gameObject.GetComponent<TextMeshProUGUI>().color.r,
+                StaminaDisplayName.gameObject.GetComponent<TextMeshProUGUI>().color.g,
+                StaminaDisplayName.gameObject.GetComponent<TextMeshProUGUI>().color.b,
+                Mathf.Max(StaminaDisplayName.gameObject.GetComponent<TextMeshProUGUI>().color.a - (fadeRate * Time.deltaTime), 0));
         }
         else if(currStamina.gameObject.GetComponent<Image>().color.a != 1 &&
             GameObject.Find(StaminaBarTargetName).GetComponent<FilAbilities>().getPercentageCurrentStamina() < .99f)
@@ -127,10 +128,10 @@ public class AdjustStaminaBar : MonoBehaviour
                 maxStamina.gameObject.GetComponent<Image>().color.b,
                 1);
 
-            StaminaDisplayName.gameObject.GetComponent<Text>().color = new Color(
-                StaminaDisplayName.gameObject.GetComponent<Text>().color.r,
-                StaminaDisplayName.gameObject.GetComponent<Text>().color.g,
-                StaminaDisplayName.gameObject.GetComponent<Text>().color.b,
+            StaminaDisplayName.gameObject.GetComponent<TextMeshProUGUI>().color = new Color(
+                StaminaDisplayName.gameObject.GetComponent<TextMeshProUGUI>().color.r,
+                StaminaDisplayName.gameObject.GetComponent<TextMeshProUGUI>().color.g,
+                StaminaDisplayName.gameObject.GetComponent<TextMeshProUGUI>().color.b,
                 1);
         }
     }

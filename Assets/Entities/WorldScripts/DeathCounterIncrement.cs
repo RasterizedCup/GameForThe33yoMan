@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DeathCounterIncrement : MonoBehaviour
 {
-    Text deathCountText;
+    TextMeshProUGUI deathCountText;
     public static int deathCount;
     // Start is called before the first frame update
     void Start()
     {
-        deathCountText = GetComponent<Text>();
+        deathCountText = GetComponent<TextMeshProUGUI>();
         deathCount = 0;
     }
 

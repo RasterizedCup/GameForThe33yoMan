@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -134,32 +135,32 @@ public class FilAbilityHandler : FilAbilities
     {
         if (Snailian.isSnailianAllowed)
         {
-            PrimaryRef.GetComponent<Text>().color = (PrimaryAbility == ActiveAbility) ?
+            PrimaryRef.GetComponent<TextMeshProUGUI>().color = (PrimaryAbility == ActiveAbility) ?
                 Color.green : fadedButAvailable;
-            SecondaryRef.GetComponent<Text>().color = (SecondaryAbility == ActiveAbility) ?
+            SecondaryRef.GetComponent<TextMeshProUGUI>().color = (SecondaryAbility == ActiveAbility) ?
                 Color.green : fadedButAvailable;
             return;
         }
 
         if (PrimaryAbility != AbilityType.Snailian)
         {               
-            PrimaryRef.GetComponent<Text>().color = (PrimaryAbility == ActiveAbility) ?
+            PrimaryRef.GetComponent<TextMeshProUGUI>().color = (PrimaryAbility == ActiveAbility) ?
                 Color.green : fadedButAvailable;
         }
         if (SecondaryAbility != AbilityType.Snailian)
         {
-            SecondaryRef.GetComponent<Text>().color = (SecondaryAbility == ActiveAbility) ?
+            SecondaryRef.GetComponent<TextMeshProUGUI>().color = (SecondaryAbility == ActiveAbility) ?
                 Color.green : fadedButAvailable;
         }
 
         if (PrimaryAbility == AbilityType.Snailian)
         {
-            PrimaryRef.GetComponent<Text>().color = (PrimaryAbility == ActiveAbility) ?
+            PrimaryRef.GetComponent<TextMeshProUGUI>().color = (PrimaryAbility == ActiveAbility) ?
                 Color.red : fadedUnavailable;
         }
         if (SecondaryAbility == AbilityType.Snailian)
         {
-            SecondaryRef.GetComponent<Text>().color = (SecondaryAbility == ActiveAbility) ?
+            SecondaryRef.GetComponent<TextMeshProUGUI>().color = (SecondaryAbility == ActiveAbility) ?
                 Color.red : fadedUnavailable;
         }
 
