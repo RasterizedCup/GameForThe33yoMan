@@ -8,7 +8,8 @@ public class FilGyrate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // threw this here temporarily
+        Application.targetFrameRate = Screen.currentResolution.refreshRate;
     }
 
     // Update is called once per frame

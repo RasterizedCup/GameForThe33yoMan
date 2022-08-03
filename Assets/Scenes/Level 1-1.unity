@@ -2235,7 +2235,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 879589498}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.54714286
+  m_Size: 0.5471429
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2871,7 +2871,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 338382234}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.54714286
+  m_Size: 0.5471429
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4581,7 +4581,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 208876339}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.54714286
+  m_Size: 0.5471429
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4972,7 +4972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344286169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -62.779053, y: -5.000002, z: -10}
+  m_LocalPosition: {x: -62.77778, y: -5.000002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -36820,7 +36820,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 382402717}
   m_HandleRect: {fileID: 382402716}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -38118,7 +38118,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 956388380}
   m_HandleRect: {fileID: 956388379}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

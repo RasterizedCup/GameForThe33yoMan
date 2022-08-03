@@ -28,7 +28,7 @@ public class CharMovement : CharStats
     void Start()
     {
        // Screen.SetResolution(1920, 1080, FullScreenMode.MaximizedWindow, 60);
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = Screen.currentResolution.refreshRate;
         feet = GetComponentInChildren<Transform>();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
