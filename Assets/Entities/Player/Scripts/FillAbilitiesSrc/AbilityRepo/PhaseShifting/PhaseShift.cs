@@ -80,7 +80,7 @@ public class PhaseShift : MonoBehaviour
                 {
                     // handle condition of sus sprite
                     var af = !Flashbang.flashbangSpriteActive ? Instantiate(AfterImageObj) : Instantiate(SusAfterImageObj);
-                    af.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                    af.transform.position = new Vector3(transform.position.x, transform.position.y + .1f, transform.position.z);
                     phaseAfterImgSplitTime = Time.time;
                 }
             }

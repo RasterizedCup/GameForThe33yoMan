@@ -13,7 +13,7 @@ public class ThrowingFan : FilProjectile
         maxLifeduration = 6;
         currLifeDuration = Time.time + maxLifeduration;
 
-        this.transform.position = GameObject.Find("Bubble Player").transform.position;
+        this.transform.position = GameObject.Find("FilAttacks").transform.position;
 
         markForDestruction = false;
         primingDestroy = false;
@@ -78,6 +78,8 @@ public class ThrowingFan : FilProjectile
             collisionTag == "background" ||
             collisionTag == "PlayerFlashbang" ||
             collisionTag == "SnailRegion" ||
+            collisionTag == "MotLaser" ||
+            collisionTag == "CheckpointRegion" ||
             collisionTag == "FOVcontrol";
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class LaserBeam : MonoBehaviour
 {
+    public Camera OrthoWeaponCam;
     public float laserTotalDuration;
     public float laserWindupDuration;
     bool laserEnabled = false;
@@ -14,7 +15,8 @@ public class LaserBeam : MonoBehaviour
     public GameObject LaserSprite;
     public AudioSource LaserSound;
     Vector2 posDelta;
-    public float testDistanceVect;
+    public float laserSpriteXScalar;
+    public float laserSpriteYScalar;
     public float firstMaxIntensity;
     public float maxIntensity, minIntensity, flickerRate;
     bool flickerIsDescending;
@@ -29,6 +31,8 @@ public class LaserBeam : MonoBehaviour
     public Light2D worldLight;
     public float worldLightMin, worldLightMax;
     public float worldLightChangeRate;
+
+    Camera attackOrientationCam;
     private void Start()
     {
         toggleParticles = true;
@@ -39,6 +43,7 @@ public class LaserBeam : MonoBehaviour
         flickerIsDescending = true;
         initLaser = true;
         laserEnabled = true;
+        attackOrientationCam = GameObject.Find("OrthoTrackingCamera").GetComponent<Camera>();
     }
     public bool HandleLaserBeam()
     {
@@ -57,18 +62,22 @@ public class LaserBeam : MonoBehaviour
                 isCurrentlyLasering = true;
                 LaserLight.enabled = true;
                 LaserSprite.GetComponent<SpriteRenderer>().enabled = true;
+
                 // set laser rotation
-                Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 worldPoint = GetScreenToRayPoint(Input.mousePosition);
                 posDelta = worldPoint - transform.position;
                 posDelta.Normalize();
                 float rotZ = Mathf.Atan2(posDelta.y, posDelta.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+
                 // handle laser impact data
                 RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, posDelta, 1000000, contactFilterPriming);
                 setBeamSprite(hit);
+
                 // init laser particles after first adjustment ray adjustment
                 if (!laserParticles.isPlaying)
                     laserParticles.Play();
+
                 // handle laser flicker
                 handleLaserFlicker();
             }
@@ -131,7 +140,7 @@ public class LaserBeam : MonoBehaviour
             var targetY = transform.position.y + (impacts[0].point.y - transform.position.y) / 2;
 
             LaserSprite.transform.position = new Vector3(targetX, targetY, 0);
-            LaserSprite.transform.localScale = new Vector3(impacts[0].distance * testDistanceVect, .5f, 0);
+            LaserSprite.transform.localScale = new Vector3(impacts[0].distance * laserSpriteXScalar, laserSpriteYScalar, 0);
 
             // set particle position
             laserParticles.transform.position = impacts[0].point;
@@ -148,8 +157,8 @@ public class LaserBeam : MonoBehaviour
                 LaserLight.shapePath[i] = lightCoords[i];
             }
 
-            // check impacts
-            if (impacts[0].transform.gameObject.name.Contains("MotBot"))
+            // check impacts (update to list or tag)
+            if (impacts[0].transform.gameObject.name.Contains("MotBot") || impacts[0].transform.gameObject.name.Contains("MottTurret"))
             {
                 impacts[0].transform.gameObject.GetComponent<HealthLogicBase>().CurrentHealth -= damageVal * Time.deltaTime;
             }
@@ -158,6 +167,15 @@ public class LaserBeam : MonoBehaviour
                 impacts[0].transform.gameObject.GetComponent<MissileLogic>().SetExplosionFromExternal();
             }
         }
+    }
+
+    Vector3 GetScreenToRayPoint(Vector3 mousePos)
+    {
+        Ray ray = OrthoWeaponCam.ScreenPointToRay(mousePos);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, 0));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
     }
 
     private void OnDrawGizmosSelected()

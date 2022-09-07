@@ -14,6 +14,9 @@ public class FilAttacks : MonoBehaviour
     protected bool isInSpin;
     public bool isDoubleJumping;
 
+    // laser burst attack
+    public GameObject LaserBurst;
+
     // single throwing knife attack
     GameObject Knife, Fan;
     public GameObject ThrowingKnife;
@@ -24,6 +27,7 @@ public class FilAttacks : MonoBehaviour
     public float fanDelay;
     public ThrowingKnifeAttack throwingKnifeAttack;
     public ThrowingFanAttack throwingFanAttack;
+    public LaserBurstAttack laserBurstAttack;
     float currTime;
     // Start is called before the first frame update
     protected virtual void Start()
@@ -71,6 +75,11 @@ public class FilAttacks : MonoBehaviour
     protected bool checkThrowingStarFanAttack()
     {
         return throwingFanAttack.ThrowingStarFanAttack();
+    }
+
+    protected bool checkLaserBurst()
+    {
+        return laserBurstAttack.FillyLaserBurstAttack();
     }
 
     protected bool LaserBeam()

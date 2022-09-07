@@ -1,0 +1,69 @@
+DOCUMENTATION
+
+Instructions for use:
+	Prefabs are in the "Black hole/Prefabs" folder.
+1) "BlackHoleSimple":
+	Simple and lightweight version of shader, may not always look right.
+	Objects in front of a black hole may appear in a distorted image, which may lead to
+ 	an incorrect image. 
+	To create a black hole not from a prefab, create a new material by assigning it
+	the "SpryGorgon/BlackHoleSimple" Shader, or use an existing material. Assign this material
+	to an object with a spherical mesh.
+2) "BlackHoleRealistic":
+	A black hole simulation based on a more realistic model. Doesn't have the problem
+ 	described above, but is more resource-intensive. 
+	To create a black hole not from a prefab, create a new material by assigning it
+	the "SpryGorgon/BlackHoleRealistic" Shader, or use an existing material. Assign this material
+	to an object with a spherical mesh. Then click on the object, hover over the "Light" tab
+ 	and create a child "Reflection Probe". For the Blackhole's "Mesh Renderer" component, specify "Blend Samples"
+	in the "Light Samples" and "Reflection Samples" fields. In the "Anchor Override" field, assign
+ 	Transform of the child "Reflection Probe". If you don't know how to configure "Reflection Probe"
+ 	better,	the documentation is available online (https://docs.unity3d.com/ru/current/Manual/class-ReflectionProbe.html)
+
+
+Description of "BlackHoleLight.shader" properties:
+	Design: "No Halo" or "Halo":
+		"No Halo" - Design version with "Gravitational lensing" effect, no "halo" effect
+		"Halo" - Design version with "Gravitational lensing" effect and "halo" effect
+	Camera type: "Orthographic" or "Perspective":
+		"Orthographic" - The appearance is drawn correctly for orthographic cameras
+		"Perspective" - The appearance is drawn correctly for perspective cameras
+	Horizon Width - Width of all parts excluding singularity
+	[Halo]Halo Color - Halo color in the new version of the design
+	[Halo]Bright Light Color - Color of the photon sphere in the design with "halo"
+	[Halo]Halo Thickness - Width of the "floating" part of the accretion disk in the design with "halo"
+	[Halo]Width Of Motionless Light - Width of the "non-floating" part of the accretion disk in the design with "halo"
+	[Halo]Width Of Oscillating Light - Width of the "floating" part of the accretion disk in the design with "halo"
+	[Halo]Light Speed - The speed of light oscillation in the "floating" part of the accretion disk in the design with "halo"
+	[Halo]Light Brightness - Ligth brightness in the design with "halo"
+	[Halo]Noise - The noise texture used to generate oscillating light in the design with "halo"
+	Distortion Factor - The degree of light deflection during gravitational lensing
+	Smoothness Factor - Smoothing light deflection in gravitational lensing (scale of deflection of all rays)
+
+
+Description of "BlackHoleRealistic.shader" properties:
+	Design: "No Halo" or "Halo":
+		"No Halo" - Design version with "Gravitational lensing" effect, no "halo" effect
+		"Halo" - Design version with "Gravitational lensing" effect and "halo" effect
+	Camera type: "Orthographic" or "Perspective":
+		"Orthographic" - The appearance is drawn correctly for orthographic cameras
+		"Perspective" - The appearance is drawn correctly for perspective cameras
+	Horizon Width - Width of all parts excluding singularity
+	[Halo]Halo Color - Halo color in the new version of the design
+	[Halo]Bright Light Color - Color of the photon sphere in the design with "halo"
+	[Halo]Halo Thickness - Width of the "floating" part of the accretion disk in the design with "halo"
+	[Halo]Width Of Motionless Light - Width of the "non-floating" part of the accretion disk in the design with "halo"
+	[Halo]Width Of Oscillating Light - Width of the "floating" part of the accretion disk in the design with "halo"
+	[Halo]Light Speed - The speed of light oscillation in the "floating" part of the accretion disk in the design with "halo"
+	[Halo]Light Brightness - Ligth brightness in the design with "halo"
+	[Halo]Noise - The noise texture used to generate oscillating light in the design with "halo"
+	Distortion Factor - The degree of light deflection during gravitational lensing
+	Smoothness Factor - Smoothing light deflection in gravitational lensing (scale of deflection of all rays)
+	Probes Blending - Enable this option if you are not using a child "Reflection Probe", but use other ones placed around the scene, and if you want to achieve a smooth transition of the image between external probes.
+
+
+SUPPORT, COMPLAINTS AND SUGGESTIONS
+(Please, use english language)
+sprygorgon@mail.ru
+
+P.S. Don't forget to rate!

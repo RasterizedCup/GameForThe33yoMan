@@ -26,7 +26,7 @@ public class FilAbilityHandler : FilAbilities
     bool AbilityIsActive;
     bool OnePassAbilityReset;
     AudioSource AbilityToggler;
-
+    Array values = Enum.GetValues(typeof(KeyCode));
     Color fadedButAvailable;
     Color fadedUnavailable;
     // Start is called before the first frame update
@@ -34,8 +34,8 @@ public class FilAbilityHandler : FilAbilities
     {
         base.Start();
         PrimaryAbility = AbilityType.PhaseShift;
-        SecondaryAbility = AbilityType.GrapplingHook;
-        ActiveAbility = AbilityType.None;
+        SecondaryAbility = AbilityType.Snailian;
+        ActiveAbility = AbilityType.PhaseShift;
         GrappleRootObject = GameObject.Find("GrapplePivot");
         GrappleRootObject.SetActive(false);
         AbilityIsActive = false;
@@ -58,10 +58,9 @@ public class FilAbilityHandler : FilAbilities
     // Update is called once per frame
     void Update()
     {
-        ToggleAbilityTest();
         // always handle stamina regen
         handleStaminaRegen();
-        if (!CharMovement.isCutscene)
+        if (!CharMovement.isCutscene && !FilHealth.isDead)
         {
             // always check jump and doublejump (except cutscene)
             jumping.setCoyote();
@@ -70,41 +69,40 @@ public class FilAbilityHandler : FilAbilities
                 jumping.handleJumping();
                 jumping.doubleJumpFlipCheck();
             }
+            ToggleAbilityTest();
             // check ability on Lshift press
             // (grapple logic is complicated, it is in its own game object/class outside of abilities, and is handled as such)
-            if (ActiveAbility != AbilityType.GrapplingHook)
+            handlePrimaryAbility();
+            if (GrappleRootObject.activeSelf && AbilityIsActive)
             {
-                if (GrappleRootObject.activeSelf)
-                {
-                    GrappleRootObject.SetActive(false);
-                    GameObject.Find("Bubble Player").GetComponent<SpringJoint2D>().enabled = false;
-                }
-                handlePrimaryAbility();
+                GrappleRootObject.SetActive(false);
+                GameObject.Find("Bubble Player").GetComponent<SpringJoint2D>().enabled = false;
             }
             else
             {
                 handleGrapplingHook();
             }
-            // check ability on.. E press? custom mappable?
         }
         // check default state
         setCheckDefaultState();
         
     }
 
+    // depreciate
+    
     void ToggleAbilityTest()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !AbilityIsActive || (ActiveAbility != PrimaryAbility && ActiveAbility != SecondaryAbility) )
+        if (ActiveAbility != PrimaryAbility)
         {
             AbilityToggler.Play();
             ActiveAbility = (ActiveAbility != PrimaryAbility) ? PrimaryAbility : SecondaryAbility;
         }
     }
-
+    
     void handlePrimaryAbility()
     {
         SetupAbilityUI();
-        if (Input.GetKey(KeyCode.LeftShift) || AbilityIsActive && ActiveAbility != AbilityType.GrapplingHook)
+        if (Input.GetKey(ControlMapping.KeyMap["Primary Ability"]) || AbilityIsActive && ActiveAbility != AbilityType.GrapplingHook)
         {
             AbilityIsActive = (bool)AbilityMap[ActiveAbility].DynamicInvoke();
             OnePassAbilityReset = true;
@@ -183,6 +181,24 @@ public class FilAbilityHandler : FilAbilities
         }
     }
 
+    public void EnsureSnailDisabled()
+    {
+        if (ActiveAbility == AbilityType.Snailian)
+        {
+            // only deset rotation one time
+            if (Snailian.isSnailianActive)
+                GameObject.Find("Bubble Player").transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            snailian.filSprite.color = new Color(snailian.filSprite.color.r, snailian.filSprite.color.g, snailian.filSprite.color.b, 1);
+            snailian.SnailSprite.color = new Color(snailian.filSprite.color.r, snailian.filSprite.color.g, snailian.filSprite.color.b, 0);
+            snailian.Snailimator.enabled = false;
+            snailian.rb2d.bodyType = RigidbodyType2D.Dynamic;
+            Snailian.isSnailianPrimed = false;
+            Snailian.isSnailianActive = false;
+            snailian.SnailModeEnabled = false;
+        }
+    }
+
     public static string GetCurrentPrimaryAbilityName()
     {
         return MapAbilityEnumToString(PrimaryAbility);
@@ -213,6 +229,8 @@ public class FilAbilityHandler : FilAbilities
                 return "Nyoom";
             case AbilityType.GrapplingHook:
                 return "Grappling Hook";
+            case AbilityType.GrappleSpike:
+                return "Grapple Spike";
             case AbilityType.Snailian:
                 return "Snailian";
             case AbilityType.None:

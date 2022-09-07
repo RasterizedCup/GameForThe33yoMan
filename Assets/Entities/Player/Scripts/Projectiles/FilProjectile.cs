@@ -17,5 +17,4 @@ public class FilProjectile : MonoBehaviour
     public AudioClip knifeHit;
 
     public int DamageDealt;
-
 }

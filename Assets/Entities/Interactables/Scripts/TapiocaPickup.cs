@@ -23,12 +23,7 @@ public class TapiocaPickup : MonoBehaviour
     {
         if (!disableSnack)
         {
-            if (PhaseShift.isPhaseShifting)
-            {
-                snackCollider.radius = .8f;
-            }
-            else
-                snackCollider.radius = .05f;
+            snackCollider.radius = PhaseShift.isPhaseShifting ? .1f : .05f;
         }
         else
         {

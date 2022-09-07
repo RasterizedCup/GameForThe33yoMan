@@ -12,10 +12,11 @@ public class FilUltimateHandler : FilUltimates
     void Start()
     {
         isUltimateActive = false;
-        selectedUltimate = UltimateType.LaserBeam;
+        selectedUltimate = UltimateType.BlackHole;
         UltimateMap = new Dictionary<UltimateType, Func<bool>> {
             { UltimateType.Flashbang, handleFlashbang },
             { UltimateType.LaserBeam, handleLaserBeam },
+            { UltimateType.BlackHole, handleBlackHole },
         };
     }
 
@@ -28,7 +29,7 @@ public class FilUltimateHandler : FilUltimates
 
     void handleUltimate()
     {
-        if ((Input.GetKeyDown(KeyCode.Q) && currentUltCharge >= maxUltCharge) || isUltimateActive)
+        if ((Input.GetKeyDown(ControlMapping.KeyMap["Ultimate Ability"]) && currentUltCharge >= maxUltCharge) || isUltimateActive)
         {
             isUltimateActive = (bool)UltimateMap[selectedUltimate].DynamicInvoke();
         }
@@ -54,6 +55,8 @@ public class FilUltimateHandler : FilUltimates
                 return "Flashbang";
             case UltimateType.LaserBeam:
                 return "Laser Beam";
+            case UltimateType.BlackHole:
+                return "Black Hole";
             default:
                 return "Lol something broke in the Enum to string mapping for ultimates";
         }

@@ -21,6 +21,10 @@ TagManager:
   - background
   - SnailRegion
   - DeathRegion
+  - ElevatorTeleporter
+  - MotLaser
+  - VisualMap
+  - CheckpointRegion
   layers:
   - Default
   - TransparentFX
@@ -34,7 +38,7 @@ TagManager:
   - Player
   - FOVcontrol
   - GrappleObject
-  - 
+  - BlackHoleCenter
   - 
   - 
   - 
@@ -63,4 +67,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 261088177
+    locked: 0
+  - name: Core
+    uniqueID: 479840653
     locked: 0

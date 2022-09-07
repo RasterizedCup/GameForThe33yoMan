@@ -49,7 +49,7 @@ public class Jumping : MonoBehaviour
 
         // handle jump logic
         Vector2 velocity = rb2d.velocity;
-        if (Input.GetKeyDown(KeyCode.Space) && (grounded() || canDoubleJump) && !GrappleRope.disableGravitySim)
+        if (Input.GetKeyDown(ControlMapping.KeyMap["Jump"]) && (grounded() || canDoubleJump) && !GrappleRope.disableGravitySim)
         {
             // handle jumptypes here
             // double jump

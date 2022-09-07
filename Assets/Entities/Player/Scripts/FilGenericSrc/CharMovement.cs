@@ -16,7 +16,6 @@ public class CharMovement : CharStats
     public LayerMask groundLayers;
     public Vector2 colSize;
     public Vector3 offset;
-    bool freeFrame = true;
     Transform feet;
     bool rotateToggle = true;
     Transform filSprite;
@@ -27,8 +26,10 @@ public class CharMovement : CharStats
     // Start is called before the first frame update
     void Start()
     {
-       // Screen.SetResolution(1920, 1080, FullScreenMode.MaximizedWindow, 60);
+        QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
+        Screen.SetResolution(2560, 1440, FullScreenMode.MaximizedWindow);
+        //Application.targetFrameRate = 60;
         feet = GetComponentInChildren<Transform>();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -48,7 +49,7 @@ public class CharMovement : CharStats
     {
         checkCutscene();
         // setCoyote();
-        if (!Snailian.isSnailianActive)
+        if (!Snailian.isSnailianActive && !FilHealth.isDead)
         {
             rb2d.velocity = !isCutscene ? calcVelocity(rb2d.velocity) : Vector2.zero;
         }
@@ -61,6 +62,8 @@ public class CharMovement : CharStats
         {
             spriteRenderer.flipX = true;
         }
+        if (FilHealth.isDead)
+            rb2d.velocity = Vector3.zero;
     }
 
     void checkCutscene()
@@ -108,7 +111,7 @@ public class CharMovement : CharStats
         if (!ActiveToggle.isMenuActive)
         {
             // sim physics based, less snappy, independent to frame rate
-            if (Input.GetKey(KeyCode.D) && velocity.x < maxVelocity)
+            if (Input.GetKey(ControlMapping.KeyMap["Move Right"]) && velocity.x < maxVelocity)
             {
                 if (velocity.x < 0)
                     velocity.x += Time.deltaTime * velRedirect;
@@ -117,7 +120,7 @@ public class CharMovement : CharStats
                 if (velocity.x > maxVelocity)
                     velocity.x = maxVelocity;
             }
-            if (Input.GetKey(KeyCode.A) && velocity.x > maxVelocity * -1)
+            if (Input.GetKey(ControlMapping.KeyMap["Move Left"]) && velocity.x > maxVelocity * -1)
             {
                 if (velocity.x > 0)
                     velocity.x -= Time.deltaTime * velRedirect;
@@ -127,12 +130,12 @@ public class CharMovement : CharStats
                     velocity.x = maxVelocity * -1;
             }
         }
-        if((!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) || !grounded())
+        if((!Input.GetKey(ControlMapping.KeyMap["Move Left"]) && !Input.GetKey(ControlMapping.KeyMap["Move Right"])) || !grounded())
         {
             filSprite.localRotation = Quaternion.Euler(filSprite.localRotation.eulerAngles.x, filSprite.localRotation.eulerAngles.y, filSprite.localRotation.eulerAngles.z);
         }
         // natural deceleration lateral
-        if((!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !GrappleRope.disableGravitySim) || ActiveToggle.isMenuActive)
+        if((!Input.GetKey(ControlMapping.KeyMap["Move Left"]) && !Input.GetKey(ControlMapping.KeyMap["Move Right"]) && !GrappleRope.disableGravitySim) || ActiveToggle.isMenuActive)
         {
             if (!grounded())    // if not on ground, decelerate more slowly
             {

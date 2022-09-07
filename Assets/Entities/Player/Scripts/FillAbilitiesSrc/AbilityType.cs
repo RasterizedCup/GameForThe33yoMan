@@ -8,5 +8,6 @@ public enum AbilityType
     PhaseShift,
     FillyCopter,
     GrapplingHook,
+    GrappleSpike,
     Snailian
 }

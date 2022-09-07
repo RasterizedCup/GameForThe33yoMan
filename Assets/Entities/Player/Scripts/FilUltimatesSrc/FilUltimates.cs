@@ -6,6 +6,7 @@ public class FilUltimates : MonoBehaviour
 {
     public Flashbang flashbang;
     public LaserBeam laserbeam;
+    public BlackHole blackhole;
     public float maxUltCharge;
     public float ultChargeRegenRate;
     public static float currentUltCharge;
@@ -41,5 +42,10 @@ public class FilUltimates : MonoBehaviour
     protected bool handleLaserBeam()
     {
         return laserbeam.HandleLaserBeam();
+    }
+
+    protected bool handleBlackHole()
+    {
+        return blackhole.HandleBlackHole();
     }
 }

@@ -18,6 +18,6 @@ public class DeathCounterIncrement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        deathCountText.text = $"Tutorial Death Counter: {deathCount}";
+        deathCountText.text = $"Death Counter: {deathCount}";
     }
 }

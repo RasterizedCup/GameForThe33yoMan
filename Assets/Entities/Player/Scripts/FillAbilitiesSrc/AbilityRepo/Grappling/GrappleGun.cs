@@ -73,13 +73,19 @@ public class GrappleGun : MonoBehaviour
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
         }
-
-        if (Input.GetMouseButtonDown(0))
+        // set to be dynamic
+        if (Input.GetKeyDown(ControlMapping.KeyMap["Grappling Hook"]))
         {
             SetGrapplePoint();
         }
-        else if (Input.GetMouseButton(0))
+        else if (Input.GetKey(ControlMapping.KeyMap["Grappling Hook"]))
         {
+            // exists to disable grapple hook during object teleport
+            if(GrappledObject?.gameObject.layer == LayerMask.NameToLayer("Default"))
+            {
+                DisableGrappleHook();
+            }
+
             if (grappleRope.enabled)
             {
                 // setting these on hold allows grapple pos to be updated for moving objects
@@ -89,7 +95,7 @@ public class GrappleGun : MonoBehaviour
             }
             else
             {
-                Vector2 mousePos = m_camera.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mousePos = GetScreenToRayPoint(Input.mousePosition);
                 RotateGun(mousePos, true);
             }
             Debug.Log(launchToPoint + " " + grappleRope.enabled);
@@ -105,17 +111,23 @@ public class GrappleGun : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        else if (Input.GetKeyUp(ControlMapping.KeyMap["Grappling Hook"]))
         {
-            grappleRope.enabled = false;
-            m_springJoint2D.enabled = false;
-            m_rigidbody.gravityScale = 1;
+            DisableGrappleHook();
         }
         else
         {
-            Vector2 mousePos = m_camera.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos = GetScreenToRayPoint(Input.mousePosition);
             RotateGun(mousePos, true);
         }
+    }
+
+    // may need to handle this externally, just make public
+    public void DisableGrappleHook()
+    {
+        grappleRope.enabled = false;
+        m_springJoint2D.enabled = false;
+        m_rigidbody.gravityScale = 1;
     }
 
     void RotateGun(Vector3 lookPoint, bool allowRotationOverTime)
@@ -135,7 +147,7 @@ public class GrappleGun : MonoBehaviour
 
     void SetGrapplePoint()
     {
-        Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - gunPivot.position;
+        Vector2 distanceVector = GetScreenToRayPoint(Input.mousePosition) - gunPivot.position;
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
         {
             // set mask
@@ -195,6 +207,15 @@ public class GrappleGun : MonoBehaviour
                     break;
             }
         }
+    }
+
+    Vector3 GetScreenToRayPoint(Vector3 mousePos)
+    {
+        Ray ray = m_camera.ScreenPointToRay(mousePos);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, 0));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
     }
 
     private void OnDrawGizmosSelected()

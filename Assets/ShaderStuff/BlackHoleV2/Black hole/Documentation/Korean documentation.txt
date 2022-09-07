@@ -1,0 +1,70 @@
+선적 서류 비치
+
+사용 지침 :
+	Prefabs는 "Black hole / Prefabs"폴더에 있습니다.
+1) "BlackHoleSimple":
+	간단하고 가벼운 버전의 셰이더는 항상 제대로 보이지 않을 수 있습니다.
+	블랙홀 앞의 물체가 왜곡 된 이미지로 나타날 수 있습니다.
+	 잘못된 이미지.
+	프리 팹이 아닌 블랙홀을 만들려면 할당하여 새 재질을 만듭니다.
+	"SpryGorgon / BlackHoleSimple"셰이더를 사용하거나 기존 재질을 사용합니다. 이 재료 할당
+	구형 메시가있는 오브젝트에
+2) "BlackHoleRealistic":
+	보다 사실적인 모델을 기반으로 한 블랙홀 시뮬레이션. 문제가 없습니다
+	 위에서 설명했지만 리소스 집약적입니다.
+	프리 팹이 아닌 블랙홀을 만들려면 할당하여 새 재질을 만듭니다.
+	"SpryGorgon / BlackHoleRealistic"셰이더를 사용하거나 기존 재질을 사용합니다. 이 재료 할당
+	구형 메시가있는 오브젝트에 그런 다음 개체를 클릭하고 "Light"탭 위로 마우스를 가져갑니다.
+	 하위 "Reflection Probe"를 만듭니다. Blackhole의 "Mesh Renderer"구성 요소에 대해 "Blend Samples"를 	지정합니다.
+	"Light Samples"및 "Reflection Samples"필드에서 "Anchor Override"필드에서
+	 자식 "반사 프로브"의 변형. "반사 프로브"를 구성하는 방법을 모르는 경우
+	 더 좋은 점은 온라인 문서 (https://docs.unity3d.com/ru/current/Manual/class-ReflectionProbe.html)	입니다.
+
+
+"BlackHoleLight.shader"속성에 대한 설명 :
+	Design: "No Halo" or "Halo":
+		"No Halo"- "Gravitational lensing"효과가있는 디자인 버전, "halo"효과 없음
+		"Halo"- "Gravitational lensing"효과와 "halo"효과가있는 디자인 버전
+	Camera type: "Orthographic" or "Perspective":
+		"Orthographic"-직교 카메라의 모양이 올바르게 그려집니다.
+		"Perspective"-원근 카메라의 모양이 올바르게 그려집니다.
+	Horizon Width-특이점을 제외한 모든 부품의 너비
+	[Halo] Halo Color-디자인의 새로운 버전의 Halo 색상
+	[Halo] Bright Light Color- "후광"이있는 디자인의 광자 구 색상
+	[헤일로] 헤일로 두께- "헤일로"가있는 디자인에서 부착 디스크의 "부동"부분 너비
+	[Halo] Width Of Motionless Light- "후광"이있는 디자인에서 부착 디스크의 "비 부동"부분의 너비
+	[Halo] Width Of Oscillating Light- "후광"이있는 디자인에서 부착 디스크의 "부동"부분의 폭
+	[Halo] Light Speed- "후광"이있는 디자인에서 부착 디스크의 "부동"부분에서 빛이 진동하는 속도입니다.
+	[Halo] Light Brightness- "후광"이있는 디자인의 Ligth 밝기
+	[Halo] Noise- "후광"이있는 디자인에서 진동하는 빛을 생성하는 데 사용되는 노이즈 텍스처
+	Distortion Factor-중력 렌즈를 사용하는 동안 빛의 편향 정도
+	Smoothness Factor-중력 렌즈에서 빛의 편향을 부드럽게합니다 (모든 광선의 편향 배율).
+
+
+"BlackHoleRealistic.shader"속성에 대한 설명 :
+	Design: "No Halo" or "Halo":
+		"No Halo"- "Gravitational lensing"효과가있는 디자인 버전, "halo"효과 없음
+		"Halo"- "Gravitational lensing"효과와 "halo"효과가있는 디자인 버전
+	Camera type: "Orthographic" or "Perspective":
+		"Orthographic"-직교 카메라의 모양이 올바르게 그려집니다.
+		"Perspective"-원근 카메라의 모양이 올바르게 그려집니다.
+	Horizon Width-특이점을 제외한 모든 부품의 너비
+	[Halo] Halo Color-디자인의 새로운 버전의 Halo 색상
+	[Halo] Bright Light Color- "후광"이있는 디자인의 광자 구 색상
+	[헤일로] 헤일로 두께- "헤일로"가있는 디자인에서 부착 디스크의 "부동"부분 너비
+	[Halo] Width Of Motionless Light- "후광"이있는 디자인에서 부착 디스크의 "비 부동"부분의 너비
+	[Halo] Width Of Oscillating Light- "후광"이있는 디자인에서 부착 디스크의 "부동"부분의 폭
+	[Halo] Light Speed- "후광"이있는 디자인에서 부착 디스크의 "부동"부분에서 빛이 진동하는 속도입니다.
+	[Halo] Light Brightness- "후광"이있는 디자인의 Ligth 밝기
+	[Halo] Noise- "후광"이있는 디자인에서 진동하는 빛을 생성하는 데 사용되는 노이즈 텍스처
+	Distortion Factor-중력 렌즈를 사용하는 동안 빛의 편향 정도
+	Smoothness Factor-중력 렌즈에서 빛의 편향을 부드럽게합니다 (모든 광선의 편향 범위).
+	Probes Blending-하위 "Reflection Probe"를 사용하지 않고 다른 것을 사용하는 경우이 옵션을 활성화합니다.
+장면 주위에 배치하고 외부 프로브간에 이미지를 부드럽게 전환하려는 경우.
+
+
+지원, 불만 및 제안
+(영어를 사용하십시오)
+sprygorgon@mail.ru
+
+추신 평가하는 것을 잊지 마세요!

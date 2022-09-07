@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class FilHealth : HealthLogicBase
 {
     // Start is called before the first frame update
     public BoxCollider2D FilHitBox;
+    public GameObject DeathAnimator;
+    public SpriteRenderer FilSprite;
+    public float deathDuration;
+    public static bool isDead;
+    float currTime;
     float xSize, ySize, xOffset, yOffset;
-    Vector2 centerPoint;
-    Vector2 boxSize;
     void Start()
     {
         xSize = FilHitBox.size.x + .1f;
@@ -23,8 +27,46 @@ public class FilHealth : HealthLogicBase
     // Update is called once per frame
     void Update()
     {
-        //checkHitBoxOverlap();
-        checkForDeath();
+        checkForCharacterDeath();
+    }
+
+    void checkForCharacterDeath()
+    {
+        if (CurrentHealth <= 0 && !handleDeath)
+        {
+            currTime = Time.time;
+            handleDeath = true;
+            isDead = true;
+        }
+
+        if (handleDeath)
+        {
+            FilSprite.color = new Color(FilSprite.color.r, FilSprite.color.g, FilSprite.color.b, 0);
+            if (!DeathAnimator.active)
+            {
+                DeathAnimator.active = true;
+                DeathCounterIncrement.deathCount++;
+            }
+           
+            // disable motion and everything else
+            if (currTime + deathDuration < Time.time) // separate death time?
+            {
+                FilSprite.color = new Color(FilSprite.color.r, FilSprite.color.g, FilSprite.color.b, 1);
+                DeathAnimator.active = false;
+                handleDeath = false;
+                // teleport to nearest checkpoint, rest health
+                CurrentHealth = MaxHealth;
+
+                GameObject.Find("Bubble Player").transform.position = CheckpointTracker.currentCheckpoint;
+
+                // handle CM cam relocation for tele scene
+                if (SceneManager.GetActiveScene().name == "Level 1-1")
+                {
+                    GameObject.Find("ObjectOmniController").GetComponent<EnvToggle>().handleBoundarySwap(CheckpointTracker.currentCheckpointName);
+                }
+                isDead = false;
+            }
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,13 +77,13 @@ public class FilHealth : HealthLogicBase
         // TODO: get tag dictionary for enemy weapons
         if (collision.CompareTag("Missile") && !this.gameObject.CompareTag("PlayerInvis"))
         {
-            Debug.Log(collision.gameObject.name);
             // all colliders are child objects tied to sprite angle for weapons
             // we must get the parent component to get Weapon logic -> damage
             CurrentHealth -= collision.gameObject.GetComponentInParent<WeaponLogicBase>().damage;
             if (CurrentHealth <= 0)
             {
-               // handleDeath = true; // set this true for PRODUCTION
+                currTime = Time.time;
+                handleDeath = true; // set this true for PRODUCTION
             }
         }
 
@@ -54,9 +96,7 @@ public class FilHealth : HealthLogicBase
 
         if (collision.CompareTag("DeathRegion"))
         {
-            DeathCounterIncrement.deathCount++;
-            GameObject.Find("Bubble Player").transform.position =
-                collision.GetComponent<DeathHandler>().resetPosition;
+            CurrentHealth = 0;
         }
     }
 

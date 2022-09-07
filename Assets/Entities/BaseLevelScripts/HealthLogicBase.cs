@@ -7,6 +7,7 @@ public class HealthLogicBase : MonoBehaviour
     public float MaxHealth;
     public float CurrentHealth;
     protected bool handleDeath;
+    public 
     // Start is called before the first frame update
     void Start()
     {

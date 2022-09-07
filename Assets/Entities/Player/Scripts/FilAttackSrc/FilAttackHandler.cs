@@ -15,7 +15,7 @@ public class FilAttackHandler : FilAttacks
     protected override void Start()
     {
         base.Start();
-        PrimaryAttack = AttackType.ThrowingStarSingle;
+        PrimaryAttack = AttackType.LaserBurst;
         SecondaryAttack = AttackType.ThrowingStarFan;
 
         PrimaryAttackIsActive = false;
@@ -25,6 +25,7 @@ public class FilAttackHandler : FilAttacks
         {
             { AttackType.ThrowingStarFan, checkThrowingStarFanAttack },
             { AttackType.ThrowingStarSingle, checkThrowingStarSingleAttack },
+            { AttackType.LaserBurst, checkLaserBurst }
             // can dynamically add attacks to FilAttacks later on
         };
     }
@@ -44,27 +45,29 @@ public class FilAttackHandler : FilAttacks
         {
             base.Update();
             // check to not perform primary attack if grapple is active, change grapple to attack?
-            if(FilAbilityHandler.ActiveAbility != AbilityType.GrapplingHook)
-                handlePrimaryAttack();
-            handleSecondaryAttack();
+           // if(FilAbilityHandler.ActiveAbility != AbilityType.GrapplingHook)
+            handlePrimaryAttack();
+          //  handleSecondaryAttack();
         }
     }
 
     void handlePrimaryAttack()
     {
-        if (Input.GetMouseButtonDown(0) || PrimaryAttackIsActive)
+        if (Input.GetKeyDown(ControlMapping.KeyMap["Primary Attack"]) || PrimaryAttackIsActive)
         {
             PrimaryAttackIsActive = (bool)AttackMap[PrimaryAttack].DynamicInvoke();
         }
     }
 
+    /*
+    // TODO: disable for now, refactor to different keybind, set default grapple to right click
     void handleSecondaryAttack()
     {
         if (Input.GetMouseButtonDown(1) || SecondaryAttackIsActive)
         {
             SecondaryAttackIsActive = (bool)AttackMap[SecondaryAttack].DynamicInvoke();
         }
-    }
+    }*/
 
     public static void AssignPrimaryAttack(AttackType attackToAssign)
     {

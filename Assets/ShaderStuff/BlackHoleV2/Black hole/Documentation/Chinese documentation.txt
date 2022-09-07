@@ -1,0 +1,70 @@
+文件资料
+
+使用说明：
+	预制件位于“黑洞/预制件”文件夹中。
+1）“ BlackHoleSimple”：
+	简单明了的着色器版本可能并不总是看起来正确。
+	黑洞前面的物体可能会出现失真的图像，这可能会导致
+	 图片不正确。
+	要创建不是来自预制件的黑洞，请通过分配新材料来创建它
+	“ SpryGorgon / BlackHoleSimple”着色器，或使用现有材料。分配此材料
+	到具有球形网格物体的对象。
+2）“ BlackHoleRealistic”：
+	基于更真实模型的黑洞模拟。没有问题
+	 以上所述，但耗费资源。
+	要创建不是来自预制件的黑洞，请通过分配新材料来创建它
+	“ SpryGorgon / BlackHoleRealistic”着色器，或使用现有材料。分配此材料
+	到具有球形网格物体的对象。然后单击对象，将鼠标悬停在“ Light”选项卡上
+	 并创建一个子级“ Reflection Probe”。对于Blackhole的“ Mesh Renderer”组件，指定“ Blend Samples”
+	在“光样本”和“反射样本”字段中。在“锚定替代”字段中，分配
+ 	子级“反射探针”的变换。如果您不知道如何配置“反射探测器”
+ 	更好的是，该文档可以在线获得（https://docs.unity3d.com/ru/current/Manual/class-ReflectionProbe.html）
+
+
+“BlackHoleLight.shader”属性的描述：
+	Design: "No Halo" or "Halo":
+		"No Halo"-具有“引力透镜”效果的设计版本，无“光晕”效果
+		"Halo"-具有“引力透镜”效果和“光晕”效果的设计版本
+	Camera type: "Orthographic" or "Perspective":
+		"Orthographic"-为正交相机正确绘制外观
+		"Perspective"-正确绘制了透视相机的外观
+	Horizon Width-除奇异点外的所有零件的宽度
+	[Halo] Halo Color-新版本中的Halo颜色设计
+	[Halo] Bright Light Color-“ halo”设计中光子球体的颜色
+	[Halo]Halo Thickness-带“光晕”的设计中吸积盘“浮动”部分的宽度
+静止光的[Halo] Width-带“ halo”的设计中吸积盘“非浮动”部分的宽度
+	振荡光的[Halo] Width-带“ halo”的设计中吸积盘“ floating”部分的宽度
+	[Halo] Light Speed-具有“ halo”设计的吸积盘“浮动”部分中的光振荡速度
+	[Halo] Light Brightness-“ halo”设计中的Ligth亮度
+	[Halo] Noise-“ halo”设计中用于产生振荡光的噪声纹理
+	Distortion Factor-引力透镜作用期间的光偏转度
+	Smoothness Factor-平滑重力透镜中的光偏转（所有光线的偏转量）
+
+
+“ BlackHoleRealistic.shader”属性的描述：
+	Design: "No Halo" or "Halo":
+		"No Halo"-具有“引力透镜”效果的设计版本，无“光晕”效果
+		"Halo"-具有“引力透镜”效果和“光晕”效果的设计版本
+	Camera type: "Orthographic" or "Perspective":
+		"Orthographic"-为正交相机正确绘制外观
+		"Perspective"-正确绘制了透视相机的外观
+	Horizon Width-除奇异点外的所有零件的宽度
+	[Halo] Halo Color-新版设计中的Halo色彩
+	[Halo] Bright Light Color-“ halo”设计中光子球体的颜色
+	[光晕]光晕厚度-带“光晕”的设计中吸积盘“浮动”部分的宽度
+	静止光的[Halo] Width-带“ halo”的设计中吸积盘“非浮动”部分的宽度
+	振荡光的[Halo] Width-带“ halo”的设计中吸积盘“ floating”部分的宽度
+	[Halo] Light Speed-具有“ halo”设计的吸积盘“浮动”部分中的光振荡速度
+	[Halo] Light Brightness-“ halo”设计中的Ligth亮度
+	[Halo] Noise-“ halo”设计中用于产生振荡光的噪声纹理
+	Distortion Factor-引力透镜作用期间的光偏转度
+	Smoothness Factor-平滑重力透镜中的光偏转（所有光线的偏转量）
+Probes Blending-如果您未使用子级“ Reflection Probe”，而使用其他“ Reflection Probe”，则启用此选项
+放置在场景周围，以及是否要在外部探针之间实现图像的平滑过渡。
+
+
+支持，投诉和建议
+（请使用英语）
+sprygorgon@mail.ru
+
+附言别忘了评分！

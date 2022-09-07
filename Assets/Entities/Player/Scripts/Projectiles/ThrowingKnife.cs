@@ -6,19 +6,24 @@ public class ThrowingKnife : FilProjectile
 {
     float maxLifeduration;
     float currLifeDuration;
-
+    Camera attackOrientationCam;
     void OnEnable()
     {
         soundSource = GetComponent<AudioSource>();
-
+        attackOrientationCam = GameObject.Find("OrthoTrackingCamera").GetComponent<Camera>();
         maxLifeduration = 6;
         currLifeDuration = Time.time + maxLifeduration;
 
         this.transform.position = GameObject.Find("Bubble Player").transform.position;
         mousePosition = Input.mousePosition;
+        // targetPosition = attackOrientationCam.ScreenToWorldPoint(mousePosition);
+        // targetPosition.z = 0;
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, 0));
+        float distance;
+        xy.Raycast(ray, out distance);
+        targetPosition = ray.GetPoint(distance);
 
-        targetPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        targetPosition.z = 0;
         Debug.Log(targetPosition);
         travelToPos = targetPosition - transform.position;
 
@@ -93,7 +98,10 @@ public class ThrowingKnife : FilProjectile
             collisionTag == "PlayerProximity" ||
             collisionTag == "background" ||
             collisionTag == "PlayerFlashbang" ||
+            collisionTag == "VisualMap" ||
             collisionTag == "SnailRegion" ||
+            collisionTag == "CheckpointRegion" ||
+            collisionTag == "MotLaser" ||
             collisionTag == "FOVcontrol";
     }
 }

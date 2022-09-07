@@ -17,7 +17,7 @@ public class PlayTestLoad : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        SceneManager.LoadScene("Level 1-1");
+        SceneManager.LoadScene("Level 1-0");
     }
 
     public void OnPointerDown(PointerEventData eventData)

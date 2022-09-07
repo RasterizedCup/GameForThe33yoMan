@@ -9,7 +9,7 @@ public class FilGyrate : MonoBehaviour
     void Start()
     {
         // threw this here temporarily
-        Application.targetFrameRate = Screen.currentResolution.refreshRate;
+        //Application.targetFrameRate = Screen.currentResolution.refreshRate;
     }
 
     // Update is called once per frame

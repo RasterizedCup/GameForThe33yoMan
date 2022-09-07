@@ -5,5 +5,6 @@ using UnityEngine;
 public enum UltimateType
 {
     Flashbang,
-    LaserBeam
+    LaserBeam,
+    BlackHole
 }
