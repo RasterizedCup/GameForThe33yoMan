@@ -75,7 +75,6 @@ public class LaserTrackLogic : FilProjectile
         // despawn after a period of time anyway
         if (!markForDestruction && currLifeDuration < Time.time)
         {
-            Debug.Log("Destroying");
             Destroy(this.gameObject);
         }
     }

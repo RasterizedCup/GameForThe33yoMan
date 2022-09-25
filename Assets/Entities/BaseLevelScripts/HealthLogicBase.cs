@@ -18,7 +18,7 @@ public class HealthLogicBase : MonoBehaviour
     protected void checkForDeath()
     {
         if (handleDeath)
-            Destroy(this.gameObject);
+            this.gameObject.active = false;
     }
 
     public float getPercentageCurrentHealth()

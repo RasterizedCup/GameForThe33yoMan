@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class FilState
 {
+    // player stats
+    public static string playerName;
+
     // generic stats
     public static float currency;
 
@@ -21,4 +24,6 @@ public class FilState
     public static bool hasFlashbang = false;
     public static bool hasLaserBeam = false;
     public static bool hasBlackHole = false;
+
+    public static HashSet<string> completedLevels = new HashSet<string>();
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlayTestLoad : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
+    public string levelToLoad;
     public GameObject SpinningFil;
     Color defaultColor, selectedColor, hoverColor;
     void Start()
@@ -17,7 +18,7 @@ public class PlayTestLoad : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        SceneManager.LoadScene("Level 1-0");
+        SceneManager.LoadScene(levelToLoad);
     }
 
     public void OnPointerDown(PointerEventData eventData)

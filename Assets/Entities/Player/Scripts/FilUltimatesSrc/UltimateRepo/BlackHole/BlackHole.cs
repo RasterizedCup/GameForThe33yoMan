@@ -112,6 +112,11 @@ public class BlackHole : MonoBehaviour
     {
         if(BHcore.active && collision.CompareTag("MotBot"))
         {
+            if(collision.name.Contains("Boss"))
+            {
+                collision.GetComponent<HealthLogicBase>().CurrentHealth -= ((.1f * damageValue) * Time.deltaTime);
+                return;
+            }
             collision.GetComponent<HealthLogicBase>().CurrentHealth -= (damageValue * Time.deltaTime);
         }
     }

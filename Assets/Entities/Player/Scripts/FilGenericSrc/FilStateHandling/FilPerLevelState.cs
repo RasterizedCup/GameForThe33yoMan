@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class FilPerLevelState : MonoBehaviour
 {
@@ -16,10 +18,11 @@ public class FilPerLevelState : MonoBehaviour
     SpriteRenderer flagObj;
     WorldTimeExpectancies WTE;
     public GameObject completionCard;
-
+    LeaderboardGrabber leaderboardGrabber;
     // Start is called before the first frame update
     void Start()
     {
+        leaderboardGrabber = GetComponent<LeaderboardGrabber>();
         numSnacksCollected = FilState.currency;
         completionCard.active = false;
         completionPass = false;
@@ -35,7 +38,7 @@ public class FilPerLevelState : MonoBehaviour
         CheckAndHandleLevelCompletion();
     }
 
-    void CheckAndHandleLevelCompletion()
+    async void CheckAndHandleLevelCompletion()
     {
         // change to reference script method whenever that is made
         if (flagObj.enabled && !completionPass)
@@ -55,6 +58,16 @@ public class FilPerLevelState : MonoBehaviour
             //Debug.Log($"{preIncreaseSnacks}, {FilState.currency}, {finishScenario.TierName}");
             completionCard.active = true;
             TierReadout.text = $"Ranking: {finishScenario.TierName}";
+
+            LeaderboardSingleMapper leaderboardSingleMapper = new LeaderboardSingleMapper
+            {
+                levelName = SceneManager.GetActiveScene().name,
+                playerName = FilState.playerName,
+                TimeToComplete = (int)AdjustedFinishTime
+            };
+
+            await leaderboardGrabber.handleUpdateAndFetchLeaderboard(leaderboardSingleMapper);
+
             // WorldTimeExpectancies instance call
             // get timeTierScenario for player
             // coordinate FilState stuff

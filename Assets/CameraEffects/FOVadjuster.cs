@@ -42,6 +42,7 @@ public class FOVadjuster : MonoBehaviour
     {
         if (collision.CompareTag("FOVcontrol"))
         {
+            CMrefocus.currentTrigger = collision.name;
             targetFOV = collision.gameObject.GetComponent<FOVaTrigger>().getTarget();
             expansionRate = collision.gameObject.GetComponent<FOVaTrigger>().getExRate();    
         }
@@ -51,6 +52,7 @@ public class FOVadjuster : MonoBehaviour
     {
         if (collision.CompareTag("FOVcontrol"))
         {
+            CMrefocus.currentTrigger = "";
             targetFOV = baseFOV;
         }
             

@@ -5,7 +5,6 @@ using UnityEngine;
 public class TurretProxCheck : MonoBehaviour
 {
     public bool isInProximity;
-    // Start is called before the first frame update
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))

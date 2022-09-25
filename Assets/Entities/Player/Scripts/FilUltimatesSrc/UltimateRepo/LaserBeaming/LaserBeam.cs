@@ -162,6 +162,10 @@ public class LaserBeam : MonoBehaviour
             {
                 impacts[0].transform.gameObject.GetComponent<HealthLogicBase>().CurrentHealth -= damageVal * Time.deltaTime;
             }
+            if (impacts[0].transform.gameObject.name.Contains("Boss"))
+            {
+                impacts[0].transform.gameObject.GetComponent<HealthLogicBase>().CurrentHealth -= (damageVal*.5f) * Time.deltaTime;
+            }
             if (impacts[0].transform.CompareTag("Missile"))
             {
                 impacts[0].transform.gameObject.GetComponent<MissileLogic>().SetExplosionFromExternal();

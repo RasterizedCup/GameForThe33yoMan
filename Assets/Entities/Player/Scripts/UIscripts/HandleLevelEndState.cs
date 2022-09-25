@@ -8,8 +8,9 @@ public class HandleLevelEndState : MonoBehaviour
     Button ContinueButton;
     GameObject EndCard;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        //Debug.Log("BUTTON PROCCED");
         ContinueButton = GetComponent<Button>();
         EndCard = GameObject.Find("LevelFinishCard");
         ContinueButton.onClick.AddListener(SetCloseOfEndDisplay);
@@ -17,6 +18,7 @@ public class HandleLevelEndState : MonoBehaviour
 
     public void SetCloseOfEndDisplay()
     {
+        //Debug.Log("END CLICKED");
         EndCard = GameObject.Find("LevelFinishCard");
         EndCard.active = false;
     }

@@ -27,9 +27,16 @@ public class FilHealth : HealthLogicBase
     // Update is called once per frame
     void Update()
     {
+        DEBUG_DEATH();
         checkForCharacterDeath();
     }
-
+    void DEBUG_DEATH()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            CurrentHealth = 0;
+        }
+    }
     void checkForCharacterDeath()
     {
         if (CurrentHealth <= 0 && !handleDeath)
