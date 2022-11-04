@@ -57,7 +57,7 @@ TextureImporter:
       213: 5778484051368270230
     second: MotMissile-Sheet_17
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -77,6 +77,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -85,9 +87,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -108,9 +110,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -126,6 +133,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -527,6 +558,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      MotMissile-Sheet_3: 5412962877206252947
+      MotMissile-Sheet_17: 5778484051368270230
+      MotMissile-Sheet_6: -3388799382136045922
+      MotMissile-Sheet_15: 7087704875203893607
+      MotMissile-Sheet_13: 4724350356529085321
+      MotMissile-Sheet_8: 6311478764189057648
+      MotMissile-Sheet_9: -2797663518232144010
+      MotMissile-Sheet_11: 4003088597183065931
+      MotMissile-Sheet_10: -6751103680223577584
+      MotMissile-Sheet_12: -7420014966044091301
+      MotMissile-Sheet_1: 4342609967076158521
+      MotMissile-Sheet_4: -7987879003613422954
+      MotMissile-Sheet_14: 7139760592920269613
+      MotMissile-Sheet_2: -3504613466970173471
+      MotMissile-Sheet_5: 4505482459830117737
+      MotMissile-Sheet_16: 4788200904372717669
+      MotMissile-Sheet_0: -5790823531524968996
+      MotMissile-Sheet_7: 1682010057747579323
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

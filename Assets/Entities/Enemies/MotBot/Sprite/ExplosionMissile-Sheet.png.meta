@@ -120,7 +120,7 @@ TextureImporter:
       213: 5653220443161952763
     second: ExplosionMissile-Sheet_38
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -140,6 +140,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -148,9 +150,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -171,9 +173,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -189,6 +196,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1031,6 +1062,46 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      ExplosionMissile-Sheet_8: -8729135444946689306
+      ExplosionMissile-Sheet_9: 5572223818188092602
+      ExplosionMissile-Sheet_27: -5955615270822971040
+      ExplosionMissile-Sheet_10: 7928900508511771289
+      ExplosionMissile-Sheet_3: -2460147459874466329
+      ExplosionMissile-Sheet_21: -6927928208484639271
+      ExplosionMissile-Sheet_35: 2075290287981574962
+      ExplosionMissile-Sheet_23: 6575094893865108317
+      ExplosionMissile-Sheet_34: 6999349263030504564
+      ExplosionMissile-Sheet_31: -7773686877721694639
+      ExplosionMissile-Sheet_38: 5653220443161952763
+      ExplosionMissile-Sheet_2: 90865894816394315
+      ExplosionMissile-Sheet_30: 7165564026843713705
+      ExplosionMissile-Sheet_0: -7717780554354264
+      ExplosionMissile-Sheet_13: 4543347995032289382
+      ExplosionMissile-Sheet_11: -5172373040207342145
+      ExplosionMissile-Sheet_28: 1361029331203922457
+      ExplosionMissile-Sheet_33: -4736291273177921865
+      ExplosionMissile-Sheet_5: -3269008931547297923
+      ExplosionMissile-Sheet_22: 205880695140467388
+      ExplosionMissile-Sheet_36: 6566836250297756240
+      ExplosionMissile-Sheet_29: 8331698637093922886
+      ExplosionMissile-Sheet_16: 2106517603348058773
+      ExplosionMissile-Sheet_12: 2324996269852863220
+      ExplosionMissile-Sheet_14: 5192334714373410139
+      ExplosionMissile-Sheet_25: -2922168988119107188
+      ExplosionMissile-Sheet_17: 7771155142591551490
+      ExplosionMissile-Sheet_37: -6390834039453842479
+      ExplosionMissile-Sheet_20: 7365304814731106501
+      ExplosionMissile-Sheet_26: -2493883987947651033
+      ExplosionMissile-Sheet_18: -5917172197747000075
+      ExplosionMissile-Sheet_19: 2085658795491997575
+      ExplosionMissile-Sheet_4: 2089151148647763012
+      ExplosionMissile-Sheet_32: -423478642985806956
+      ExplosionMissile-Sheet_7: 7440694545538032756
+      ExplosionMissile-Sheet_15: 1937020606212248617
+      ExplosionMissile-Sheet_6: 603697214991381600
+      ExplosionMissile-Sheet_1: 7852077547145882973
+      ExplosionMissile-Sheet_24: -2401164495364772801
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
