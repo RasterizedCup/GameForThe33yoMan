@@ -20,7 +20,7 @@ public class FilPerLevelState : MonoBehaviour
     public GameObject completionCard;
     LeaderboardGrabber leaderboardGrabber;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         leaderboardGrabber = GetComponent<LeaderboardGrabber>();
         numSnacksCollected = FilState.currency;
@@ -52,7 +52,7 @@ public class FilPerLevelState : MonoBehaviour
             // set Total time Completion (convert to minutes and seconds for readability)
 
             AdjustedFinishTime = CompletionTime - StartTime;
-            var finishScenario = WTE.getTimeTierScenarioFromCompletion(CompletionTime);
+            var finishScenario = WTE.getTimeTierScenarioFromCompletion(AdjustedFinishTime); // adjusted time pass instead completion Time***
             var preIncreaseSnacks = FilState.currency;
             FilState.currency += finishScenario.SnackAllocation;
             //Debug.Log($"{preIncreaseSnacks}, {FilState.currency}, {finishScenario.TierName}");
@@ -78,5 +78,10 @@ public class FilPerLevelState : MonoBehaviour
     public float getNonAdjustedCompletionTime()
     {
         return CompletionTime;
+    }
+
+    public float getAdjustedCompletionTime()
+    {
+        return AdjustedFinishTime;
     }
 }

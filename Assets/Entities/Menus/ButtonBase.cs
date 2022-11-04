@@ -10,18 +10,17 @@ public class ButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public Color ClickColor;
     float transparentValue = .45f;
     public Transform TransparencyCard;
-    Color DefaultColor;
+    protected Color DefaultColor;
 
     // Start is called before the first frame update
     void Start()
     {
         DefaultColor = TransparencyCard.gameObject.GetComponent<Image>().color;
-
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Not Imp but no exception pls");
+        TransparencyCard.gameObject.GetComponent<Image>().color = ClickColor;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -29,13 +28,13 @@ public class ButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         TransparencyCard.gameObject.GetComponent<Image>().color = HoverColor;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public virtual void OnPointerExit(PointerEventData eventData)
     {
         TransparencyCard.gameObject.GetComponent<Image>().color = DefaultColor;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public virtual void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("Not Imp but no exception pls");
+        TransparencyCard.gameObject.GetComponent<Image>().color = DefaultColor;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenPurchaseMenu : MonoBehaviour
 {
     public GameObject PurchaseMenu;
+    public string actionToPerform;
     bool canEnable;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class OpenPurchaseMenu : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             canEnable = true;
-            InteractTextUpdate.UpdateInteractionText($"Press {ControlMapping.KeyMap["Interact"]} to speak to vendor.");
+            InteractTextUpdate.UpdateInteractionText($"Press {ControlMapping.KeyMap["Interact"]} {actionToPerform}");
         }
     }
 

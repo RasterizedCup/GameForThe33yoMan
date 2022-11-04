@@ -14,14 +14,17 @@ public class FilHealth : HealthLogicBase
     public static bool isDead;
     float currTime;
     float xSize, ySize, xOffset, yOffset;
-    void Start()
+    AudioSource deathSound;
+    void Awake()
     {
+        deathSound = GetComponent<AudioSource>();
         xSize = FilHitBox.size.x + .1f;
         ySize = FilHitBox.size.y + .1f;
         xOffset = FilHitBox.offset.x;
         yOffset = FilHitBox.offset.y;
         CurrentHealth = MaxHealth;
         handleDeath = false;
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -53,6 +56,7 @@ public class FilHealth : HealthLogicBase
             {
                 DeathAnimator.active = true;
                 DeathCounterIncrement.deathCount++;
+                deathSound.Play();
             }
            
             // disable motion and everything else

@@ -8,6 +8,7 @@ public class FilAttacks : MonoBehaviour
     // will need a reference to FilAbilities to modify stamina for premiumAttacks
     FilAbilityHandler Abilityhander;
     protected Transform sprite;
+    protected Transform spritePivot;
     protected bool attackInProgress;
     public float rotationRate;
     public float flipRate;
@@ -28,6 +29,7 @@ public class FilAttacks : MonoBehaviour
     public ThrowingKnifeAttack throwingKnifeAttack;
     public ThrowingFanAttack throwingFanAttack;
     public LaserBurstAttack laserBurstAttack;
+    public MeleeAxe meleeAxeAttack;
     float currTime;
     // Start is called before the first frame update
     protected virtual void Start()
@@ -37,6 +39,7 @@ public class FilAttacks : MonoBehaviour
         currTime = 0 - fanDelay; // allow immediate fire of either ability (weird fault of starting state)
         Abilityhander = GameObject.Find("FilAbilities").GetComponent<FilAbilityHandler>();
         sprite = GameObject.FindGameObjectWithTag("FilSprite").GetComponent<Transform>();
+        spritePivot = GameObject.Find("FilSpritePivot").GetComponent<Transform>();
         attackInProgress = false;
         isInSpin = false;
         isDoubleJumping = false;
@@ -46,26 +49,6 @@ public class FilAttacks : MonoBehaviour
     protected virtual void Update()
     {
     }
-    /*
-    protected bool throwingStarSingleAttack()
-    {
-        if (!attackInProgress && Time.time >= currTime + knifeDelay)
-        {
-            currTime = Time.time;
-            attackInProgress = true;
-            var freshKnife = Instantiate(Knife);
-            freshKnife.name = Guid.NewGuid().ToString() + "Knife";
-        }
-
-        // rotate sprite X 360 degrees through delta time
-        // toggle a check at greater than 180 so we know to reset it once we are lower than 180 again
-
-        if (attackInProgress)
-        {
-            return handleSpin();
-        }
-        return false;
-    }*/
 
     protected bool checkThrowingStarSingleAttack()
     {
@@ -82,30 +65,15 @@ public class FilAttacks : MonoBehaviour
         return laserBurstAttack.FillyLaserBurstAttack();
     }
 
+    protected bool checkAxeSwing()
+    {
+        return meleeAxeAttack.AxeSwingAttack();
+    }
+
     protected bool LaserBeam()
     {
         return false;
     }
 
-    bool handleSpin()
-    {
-        sprite.localRotation = Quaternion.Euler(sprite.localRotation.eulerAngles.x,
-                sprite.localRotation.eulerAngles.y + (rotationRate * Time.deltaTime),
-                sprite.localRotation.eulerAngles.z);
-
-        if (sprite.localRotation.eulerAngles.y > 180)
-        {
-            isInSpin = true;
-        }
-        if (isInSpin)
-        {
-            if (sprite.localRotation.eulerAngles.y < 180)
-            {
-                isInSpin = false;
-                attackInProgress = false;
-                sprite.localRotation = Quaternion.Euler(sprite.localRotation.x, 0, sprite.localRotation.z);
-            }
-        }
-        return true;
-    }
+    
 }

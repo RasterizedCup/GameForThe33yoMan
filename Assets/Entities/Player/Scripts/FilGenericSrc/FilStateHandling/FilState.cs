@@ -6,7 +6,7 @@ using UnityEngine;
 public class FilState
 {
     // player stats
-    public static string playerName;
+    public static string playerName = "";
 
     // generic stats
     public static float currency;

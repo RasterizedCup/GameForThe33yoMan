@@ -15,7 +15,7 @@ public class TierMarkerDisplacement : MonoBehaviour
     WorldTimeExpectancies WTE;
     RectTransform backgroundMeter, currentMeter;
     SpriteRenderer flagObj;
-    float completionTime, adjustedCompletionTime;
+    float completionTime, adjustedCompletionTime, displayAdjTimeVal;
     FilPerLevelState fpls;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,7 @@ public class TierMarkerDisplacement : MonoBehaviour
         WTE = GameObject.Find("EndStateHandler").GetComponent<WorldTimeExpectancies>();
         WTE.ensurePopulateDict();
         completionTime = fpls.getNonAdjustedCompletionTime();
+        adjustedCompletionTime = fpls.getAdjustedCompletionTime();
         var successTimes = WTE.getTimeExpectanciesFromSuccessVals();
         successTimes.Reverse(); // get worst times first
 
@@ -37,15 +38,14 @@ public class TierMarkerDisplacement : MonoBehaviour
         worstTime -= bestTime;
 
         // set adjusted completion time;
-        adjustedCompletionTime = (completionTime - bestTime) + WTE.tierDropOffset;
-        completionBarPercentFromLeft = 1 - (adjustedCompletionTime / worstTime);
+        displayAdjTimeVal = (adjustedCompletionTime - bestTime) + WTE.tierDropOffset;
+        completionBarPercentFromLeft = 1 - (displayAdjTimeVal / worstTime);
         // skip first and last
         for (int i=0; i<5; i++)
         {
             var adjustedTime = (successTimes[i] - bestTime) + WTE.tierDropOffset;
             var percentDistanceFromLeft = 1 - (adjustedTime / worstTime);
             var unitsFromLeft = backgroundMeter.rect.width * percentDistanceFromLeft;
-            Debug.Log($"UnitsFromLeft: {unitsFromLeft}, adjustedTime: {adjustedTime}, percentDistanceFromLeft: {percentDistanceFromLeft}, worstTime: {worstTime}, successTime: {successTimes[i]}");
             Debug.Log($"final offset: {(-1 * (backgroundMeter.rect.width / 2) + unitsFromLeft)}, widthRead: {(-1 * (backgroundMeter.rect.width / 2))}");
             tierSlots[i].GetComponent<RectTransform>().localPosition = new Vector3((-1*(backgroundMeter.rect.width/2) + unitsFromLeft), 0, 0);
         }
@@ -66,8 +66,8 @@ public class TierMarkerDisplacement : MonoBehaviour
             // set actual text stating success case
             snackReadout.text = $"Snacks Collected: {FilState.currency}";
 
-            var minutes = completionTime / 60;
-            var seconds = completionTime % 60;
+            var minutes = adjustedCompletionTime / 60;
+            var seconds = adjustedCompletionTime % 60;
             timeReadout.text = seconds > 10 ? $"Total Time: {(int)minutes}:{(int)seconds}" : $"Total Time: {(int)minutes}:0{(int)seconds}";
         }
     }

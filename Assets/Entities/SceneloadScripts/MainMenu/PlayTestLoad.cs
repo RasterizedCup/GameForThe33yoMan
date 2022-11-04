@@ -9,6 +9,7 @@ public class PlayTestLoad : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
 {
     public string levelToLoad;
     public GameObject SpinningFil;
+    public GameObject MovingFil;
     Color defaultColor, selectedColor, hoverColor;
     void Start()
     {
@@ -32,6 +33,8 @@ public class PlayTestLoad : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         SpinningFil.GetComponent<FilGyrate>().rotationRateX = 10000;
         SpinningFil.GetComponent<FilGyrate>().rotationRateY = 10000;
         SpinningFil.GetComponent<FilGyrate>().rotationRateZ = 10000;
+        MovingFil.GetComponent<TitleFilMovement>().setVelocityMulti(5);
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -40,6 +43,7 @@ public class PlayTestLoad : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         SpinningFil.GetComponent<FilGyrate>().rotationRateX = 50;
         SpinningFil.GetComponent<FilGyrate>().rotationRateY = 50;
         SpinningFil.GetComponent<FilGyrate>().rotationRateZ = 50;
+        MovingFil.GetComponent<TitleFilMovement>().setVelocityMulti(.2f);
     }
 
     public void OnPointerUp(PointerEventData eventData)

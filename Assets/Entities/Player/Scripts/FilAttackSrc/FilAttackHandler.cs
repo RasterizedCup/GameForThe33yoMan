@@ -15,7 +15,7 @@ public class FilAttackHandler : FilAttacks
     protected override void Start()
     {
         base.Start();
-        PrimaryAttack = AttackType.LaserBurst;
+        PrimaryAttack = AttackType.AxeSwing;
         SecondaryAttack = AttackType.ThrowingStarFan;
 
         PrimaryAttackIsActive = false;
@@ -25,7 +25,8 @@ public class FilAttackHandler : FilAttacks
         {
             { AttackType.ThrowingStarFan, checkThrowingStarFanAttack },
             { AttackType.ThrowingStarSingle, checkThrowingStarSingleAttack },
-            { AttackType.LaserBurst, checkLaserBurst }
+            { AttackType.LaserBurst, checkLaserBurst },
+            { AttackType.AxeSwing, checkAxeSwing }
             // can dynamically add attacks to FilAttacks later on
         };
     }
@@ -33,9 +34,11 @@ public class FilAttackHandler : FilAttacks
     // Update is called once per frame
     protected override void Update()
     {
+        // prevent menu raise if attack is in progress?
         if (ActiveToggle.isMenuActive)
         {
             sprite.localRotation = Quaternion.Euler(0,0,0);
+            spritePivot.localRotation = Quaternion.Euler(0, 0, 0);
             isInSpin = false;
             attackInProgress = false;
             PrimaryAttackIsActive = false;
@@ -47,7 +50,6 @@ public class FilAttackHandler : FilAttacks
             // check to not perform primary attack if grapple is active, change grapple to attack?
            // if(FilAbilityHandler.ActiveAbility != AbilityType.GrapplingHook)
             handlePrimaryAttack();
-          //  handleSecondaryAttack();
         }
     }
 
@@ -59,15 +61,10 @@ public class FilAttackHandler : FilAttacks
         }
     }
 
-    /*
-    // TODO: disable for now, refactor to different keybind, set default grapple to right click
-    void handleSecondaryAttack()
+    public bool attackActive()
     {
-        if (Input.GetMouseButtonDown(1) || SecondaryAttackIsActive)
-        {
-            SecondaryAttackIsActive = (bool)AttackMap[SecondaryAttack].DynamicInvoke();
-        }
-    }*/
+        return PrimaryAttackIsActive;
+    }
 
     public static void AssignPrimaryAttack(AttackType attackToAssign)
     {

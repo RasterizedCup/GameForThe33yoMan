@@ -22,6 +22,7 @@ public class CharMovement : CharStats
 
     // refactor phasing and stamina into their own classes (maybe double jumps as well?)
     public GameObject PhasingColliderObj; // also use for checking cutscene
+    public GameObject SpritePivoter;
     public static bool isCutscene;
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class CharMovement : CharStats
         groundContact = GetComponent<AudioSource>();
         AbilityTrigger = GameObject.FindGameObjectWithTag("FilSprite").GetComponent<AudioSource>();
         filSprite = GameObject.FindGameObjectWithTag("FilSprite").GetComponent<Transform>();
+        SpritePivoter = GameObject.Find("FilSpritePivot");
         canDoubleJump = true;
         doubleJumpUnlock = true;
         canPhaseShift = true;
@@ -56,11 +58,14 @@ public class CharMovement : CharStats
         createGroundSound();
         if (rb2d.velocity.x > 0.00001)
         {
-            spriteRenderer.flipX = false;
+            //spriteRenderer.flipX = false;
+            SpritePivoter.transform.eulerAngles = new Vector3(SpritePivoter.transform.eulerAngles.x, 0, SpritePivoter.transform.eulerAngles.z);
         }
         if(rb2d.velocity.x < -0.00001)
         {
-            spriteRenderer.flipX = true;
+            //spriteRenderer.flipX = true;
+            SpritePivoter.transform.eulerAngles = new Vector3(SpritePivoter.transform.eulerAngles.x, 180, SpritePivoter.transform.eulerAngles.z);
+
         }
         if (FilHealth.isDead)
             rb2d.velocity = Vector3.zero;

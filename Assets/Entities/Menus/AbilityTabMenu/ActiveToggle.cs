@@ -10,9 +10,11 @@ public class ActiveToggle : MonoBehaviour
     public float yToLerpFrom;
     public float lerpRate;
     RectTransform UIcontainer;
+    FilAttackHandler filAttackHandler;
     // Start is called before the first frame update
     void Start()
     {
+        filAttackHandler = GameObject.Find("FilAttacks").GetComponent<FilAttackHandler>();
         UIcontainer = GetComponent<RectTransform>();
         isMenuActive = false;
     }
@@ -28,8 +30,12 @@ public class ActiveToggle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            // only allow menu toggle while attack is not active (set for ults too)
+            if (!isMenuActive && filAttackHandler.attackActive())
+                return;
+
             isMenuActive = !isMenuActive;
-            debugMenuState = isMenuActive;
+            debugMenuState = isMenuActive;          
         }
     }
 

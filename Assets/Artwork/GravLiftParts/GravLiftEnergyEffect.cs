@@ -16,11 +16,11 @@ public class GravLiftEnergyEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        minX = SpawnXMin.position.x;
-        maxX = SpawnXMax.position.x;
-        minY = SpawnYMin.position.y;
-        maxY = SpawnYMax.position.y;
-        energyReset = EnergyResetPoint.position.y;
+        minX = SpawnXMin.localPosition.x;
+        maxX = SpawnXMax.localPosition.x;
+        minY = SpawnYMin.localPosition.y;
+        maxY = SpawnYMax.localPosition.y;
+        energyReset = EnergyResetPoint.localPosition.y;
         x = Random.Range(minX, maxX);
         y = Random.Range(minY, maxY);
         velocity = Random.Range(VelMin, VelMax);
@@ -35,12 +35,12 @@ public class GravLiftEnergyEffect : MonoBehaviour
 
     void HandleEnergyTraversal()
     {
-        if(transform.position.y > energyReset)
+        if(transform.localPosition.y > energyReset)
         {
             x = Random.Range(minX, maxX);
             y = Random.Range(minY, maxY);
             velocity = Random.Range(VelMin, VelMax);
-            transform.position = new Vector3(x, y, 0);
+            transform.localPosition = new Vector3(x, y, 0);
         }
         else
         {

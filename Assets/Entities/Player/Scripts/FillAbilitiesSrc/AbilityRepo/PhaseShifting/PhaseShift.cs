@@ -8,6 +8,7 @@ public class PhaseShift : MonoBehaviour
     Rigidbody2D rb2d;
     Transform filSprite;
     protected SpriteRenderer spriteRenderer;
+    GameObject spritePivoter;
     GameObject ColliderObj;
 
     public float phaseForceValue;
@@ -33,6 +34,7 @@ public class PhaseShift : MonoBehaviour
         filSprite = GameObject.FindGameObjectWithTag("FilSprite").GetComponent<Transform>();
         ColliderObj = GameObject.Find("FilHealthObj");
         AbilityTrigger = GetComponent<AudioSource>();
+        spritePivoter = GameObject.Find("FilSpritePivot");
     }
 
     public bool checkPhaseShift()
@@ -60,7 +62,7 @@ public class PhaseShift : MonoBehaviour
             transform.gameObject.tag = "PlayerInvis";
             ColliderObj.GetComponent<BoxCollider2D>().gameObject.tag = "PlayerInvis";
             // make the fil boost
-            if (!spriteRenderer.flipX)
+            if (spritePivoter.transform.eulerAngles.y == 0)
             {
                 rb2d.AddForce(new Vector2(phaseForceValue, 0), ForceMode2D.Impulse);
             }

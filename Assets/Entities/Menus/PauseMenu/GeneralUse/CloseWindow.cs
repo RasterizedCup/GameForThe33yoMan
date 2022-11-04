@@ -20,6 +20,21 @@ public class CloseWindow : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     public void OnPointerClick(PointerEventData eventData)
     {
         ObjectToDisable.SetActive(false);
+        // refresh existing
+        var levelArray = new List<string> {
+               "Level1TimeParent",
+               "Level2TimeParent",
+           };
+
+           // erase existing children
+           foreach (var level in levelArray)
+           {
+               GameObject parent = GameObject.Find(level);
+               foreach (Transform child in parent.transform)
+               {
+                   Destroy(child.gameObject);
+               }
+           }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

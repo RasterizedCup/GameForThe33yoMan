@@ -8,4 +8,5 @@ public enum AttackType
     ThrowingStarSingle,
     ThrowingStarFan,
     LaserBurst,
+    AxeSwing
 }

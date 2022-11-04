@@ -7,6 +7,7 @@ public class Jumping : MonoBehaviour
     Rigidbody2D rb2d;
     Transform filSprite;
     protected SpriteRenderer spriteRenderer;
+    protected GameObject filSpritePivot;
     GameObject ColliderObj;
 
     public static bool canDoubleJump;
@@ -29,14 +30,18 @@ public class Jumping : MonoBehaviour
     bool isDoubleJumping;
     public float flipRate;
 
+    float internalRotTracker;
+
     // Start is called before the first frame update
     void Start()
     {
+        internalRotTracker = 0;
         canDoubleJump = true;
         rb2d = GameObject.Find("Bubble Player").GetComponent<Rigidbody2D>();
         spriteRenderer = GameObject.Find("FilSprite").GetComponent<SpriteRenderer>();
         filSprite = GameObject.FindGameObjectWithTag("FilSprite").GetComponent<Transform>();
         ColliderObj = GameObject.Find("FilHealthObj");
+        filSpritePivot = GameObject.Find("FilSpritePivot");
         AbilityTrigger = GetComponent<AudioSource>();
         feet = GetComponent<Transform>();
     }
@@ -132,21 +137,28 @@ public class Jumping : MonoBehaviour
     {
         if (isDoubleJumping)
         {
-            filSprite.localRotation = Quaternion.Euler(filSprite.localRotation.eulerAngles.x,
+          /*  filSprite.localRotation = Quaternion.Euler(filSprite.localRotation.eulerAngles.x,
                 filSprite.localRotation.eulerAngles.y,
-                filSprite.localRotation.eulerAngles.z + (flipRate * Time.deltaTime));
+                filSprite.localRotation.eulerAngles.z + (flipRate * Time.deltaTime));*/
+           
+            filSpritePivot.transform.localRotation = Quaternion.Euler(filSpritePivot.transform.localRotation.eulerAngles.x,
+                filSpritePivot.transform.localRotation.eulerAngles.y,
+                filSpritePivot.transform.localRotation.eulerAngles.z - (flipRate * Time.deltaTime));
 
-            if (filSprite.localRotation.eulerAngles.z > 180)
+            internalRotTracker -= (flipRate * Time.deltaTime);
+            if (internalRotTracker < -360)
             {
                 isInFlip = true;
+
             }
             if (isInFlip)
             {
-                if (filSprite.localRotation.eulerAngles.z < 180)
+                if (internalRotTracker < 180)
                 {
                     isInFlip = false;
                     isDoubleJumping = false;
-                    filSprite.localRotation = Quaternion.Euler(filSprite.localRotation.x, filSprite.localRotation.y, 0);
+                    internalRotTracker = 0;
+                    filSpritePivot.transform.localRotation = Quaternion.Euler(filSprite.localRotation.x, filSprite.localRotation.y, 0);
                 }
             }
         }

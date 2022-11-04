@@ -4,26 +4,46 @@ using UnityEngine;
 
 public class GravBoost : MonoBehaviour
 {
+    public bool boostEnabled;
     public float forceOfBoost;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float maxVelFromBoost; // if left at 0, max vel is infinite
 
-    // Update is called once per frame
-    void Update()
+    bool AppropriateToBoost(Vector2 vel)
     {
-        
+        if (transform.rotation.z == 0 || transform.rotation.z == 180)
+        {
+            return Mathf.Abs(vel.y) < maxVelFromBoost || maxVelFromBoost == 0;
+        }
+        return Mathf.Abs(vel.x) < maxVelFromBoost || maxVelFromBoost == 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") || collision.CompareTag("PlayerInvis") || collision.CompareTag("PlayerFlashbang"))
+        if(CollisionChecker.hitPlayer(collision.tag))
         {
-            collision.attachedRigidbody.velocity = new Vector2(collision.attachedRigidbody.velocity.x, 0);
-            collision.attachedRigidbody.AddForce(transform.up * forceOfBoost);
             // play launch sound
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (CollisionChecker.hitPlayer(collision.tag) && boostEnabled)
+        {
+            if (AppropriateToBoost(collision.attachedRigidbody.velocity)) {
+                collision.attachedRigidbody.AddForce(transform.up * forceOfBoost * Time.deltaTime);
+                if (transform.rotation.z != 0) // clamp y vel to 0 while in lift
+                {
+                    collision.attachedRigidbody.velocity = new Vector2(collision.attachedRigidbody.velocity.x, 0);
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (CollisionChecker.hitPlayer(collision.tag))
+        {
+            boostEnabled = false;
         }
     }
 }
