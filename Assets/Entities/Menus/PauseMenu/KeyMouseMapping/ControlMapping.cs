@@ -18,6 +18,7 @@ public class ControlMapping : MonoBehaviour
 
         DefaultKeyMap = new Dictionary<string, KeyCode>
         {
+            // in game moves
             {"Move Right", KeyCode.D},
             {"Move Left", KeyCode.A},
             {"Jump", KeyCode.Space},
@@ -26,7 +27,9 @@ public class ControlMapping : MonoBehaviour
             {"Primary Ability", KeyCode.LeftShift},
             {"Ultimate Ability", KeyCode.Q},
             {"Grappling Hook", KeyCode.Mouse1},
-            {"Interact", KeyCode.F}
+            {"Interact", KeyCode.F},
+            // cutscene controls
+            {"Progress Dialog", KeyCode.Space},
         };
         KeyMap = new Dictionary<string, KeyCode>
         {
@@ -38,7 +41,9 @@ public class ControlMapping : MonoBehaviour
             {"Primary Ability", KeyCode.LeftShift},
             {"Ultimate Ability", KeyCode.Q},
             {"Grappling Hook", KeyCode.Mouse1},
-            {"Interact", KeyCode.F}
+            {"Interact", KeyCode.F},
+            // cutscene controls
+            {"Progress Dialog", KeyCode.Space},
         };
 
         isSeekingMap = false;
@@ -61,5 +66,9 @@ public class ControlMapping : MonoBehaviour
         return "binding..";
     }
 
+    public static bool validateInput()
+    {
+        return !DialogProcessor.freezeChar;
+    }
     // implement: function to handle default mapping reset
 }

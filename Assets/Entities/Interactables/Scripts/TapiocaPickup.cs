@@ -46,7 +46,6 @@ public class TapiocaPickup : MonoBehaviour
         {
             PlayPickupSound.playPickup();
             snackDisableStartTime = Time.time;
-            //Destroy(this.gameObject);
             disableSnack = true;
             collision.gameObject.GetComponent<BubblePickUp>().incrBubbleCount();
             if (firstSnackPickup)

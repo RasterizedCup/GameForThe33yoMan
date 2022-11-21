@@ -47,15 +47,13 @@ public class FilAttackHandler : FilAttacks
         if (!CharMovement.isCutscene && !ActiveToggle.isMenuActive)
         {
             base.Update();
-            // check to not perform primary attack if grapple is active, change grapple to attack?
-           // if(FilAbilityHandler.ActiveAbility != AbilityType.GrapplingHook)
             handlePrimaryAttack();
         }
     }
 
     void handlePrimaryAttack()
     {
-        if (Input.GetKeyDown(ControlMapping.KeyMap["Primary Attack"]) || PrimaryAttackIsActive)
+        if ((Input.GetKeyDown(ControlMapping.KeyMap["Primary Attack"]) && ControlMapping.validateInput()) || PrimaryAttackIsActive)
         {
             PrimaryAttackIsActive = (bool)AttackMap[PrimaryAttack].DynamicInvoke();
         }

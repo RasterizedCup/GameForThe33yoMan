@@ -1,0 +1,20 @@
+<Grindle>Hello this is some test text I'm pumping out to you. Hello this is some test text I'm pumping out to you. Hello this is some test text I'm pumping out to you. Hello this is some test text I'm pumping out to you.
+<Blimple>All good. I received it. Are you getting this text? All good. I received it. Are you getting this text? All good. I received it. Are you getting this text? All good. I received it. Are you getting this text?
+<Grindle>Yeah yeah. I'm getting it.
+<Blimple>Humphrey Humphrey Humphrey Humphrey Humphrey Humphrey Humphrey
+<Grindle>Makes sense ig
+<speaker1>some normal chatting
+<CHOICE>This is choice 1|This is choice 2|This is choice 3
+<speaker1>This is choice 1
+<speaker2>talking about choice 1
+<speaker1>talking more about choice 1
+<RETURN>
+<speaker1>This is choice 2
+<speaker2>talking about choice 2
+<speaker1>talking more about choice 2
+<CONTINUE>
+<speaker1>This is choice 3
+<speaker2>talking about choice 3
+<speaker1>talking more about choice 3
+<END>
+<speaker1>good talk senor, thank you

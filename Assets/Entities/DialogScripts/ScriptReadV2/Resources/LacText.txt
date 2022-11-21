@@ -1,0 +1,42 @@
+<Filian>Hello
+<Lacari>Greetings
+<Filian>...
+<Lacari>...
+<Filian>So..
+<Filian>What are you doing around these parts?
+<Lacari>This is my home. It is where I reside. What brings you to my land?
+<CHOICE>Your mom tbh|Can we talk about your attire first?..|I seek the fruit.|I'm trecking through the land in search of a weapon to fight the mott batallion.
+<Filian>Your mom tbh
+<Lacari>Watch your mouth you little rabies infected gremlin. It'd be best for you to say in my good graces.
+<Filian>Lol okay dad.
+<Lacari>Now.. Why are you actually here?
+<RETURN>
+<Filian>Can we talk about your attire first?..
+<Lacari>What is there to say?
+<Lacari>It's hot and humid out here.
+<Lacari>I wear this because I want to cool down, and because it looks good on me.
+<Filian>Fair enough I umm, I won't question it. You do you man.
+<RETURN>
+<Filian>I seek the fruit.
+<Lacari>The fruit?
+<Filian>Yeah, like apples and stuff. Nuts.
+<Lacari>Nuts aren't fruit.
+<Filian>Yes they are.
+<Lacari>That doesn't make any sense though.
+<Filian>But they are. I promise go look it up.
+<Lacari>Alrighty. Maybe in a few.
+<Filian>You def should it's kinda interesting.
+<Lacari>I got you I got you. Now.. What does this have to do with why you're here?
+<Filian>Uhh nothing I think, actually.
+<Lacari>Then why'd you bring it up.
+<Filian>Adhd go brrrr. You know how it is.
+<Lacari>Moving on then.
+<RETURN>
+<Filian>I'm trecking through the land in search of a weapon to fight the mott batallion.
+<Lacari>What a noble cause Filian. What exigency brings you to such an issue?
+<Filian>They're taking over welches factories around the globe! Trying to overthrow everything I care about. The snackers are starving!
+<Lacari>Oh man bro that's rough.
+<Filian>Ye.
+<Lacari>Well I believe you're on the right path. Trecking through these paths to come may be daunting, but I am sure you will find what you seek! Continue small crack-addicted one.
+<Lacari>I'll make sure to be around if you find any loose fruit snack packs. I can convert them into special powers for you to use.
+<CONTINUE>

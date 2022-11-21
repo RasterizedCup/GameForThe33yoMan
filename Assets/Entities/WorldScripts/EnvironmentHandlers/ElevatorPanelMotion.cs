@@ -27,7 +27,6 @@ public class ElevatorPanelMotion : MonoBehaviour
     {
         if (collision.CompareTag("ElevatorTeleporter"))
         {
-            Debug.Log("elevator moved");
             transform.position = TeleportReceiver.position;
         }
     }

@@ -74,11 +74,11 @@ public class GrappleGun : MonoBehaviour
             m_rigidbody.gravityScale = 1;
         }
         // set to be dynamic
-        if (Input.GetKeyDown(ControlMapping.KeyMap["Grappling Hook"]))
+        if (Input.GetKeyDown(ControlMapping.KeyMap["Grappling Hook"]) && ControlMapping.validateInput())
         {
             SetGrapplePoint();
         }
-        else if (Input.GetKey(ControlMapping.KeyMap["Grappling Hook"]))
+        else if (Input.GetKey(ControlMapping.KeyMap["Grappling Hook"]) && ControlMapping.validateInput())
         {
             // exists to disable grapple hook during object teleport
             if(GrappledObject?.gameObject.layer == LayerMask.NameToLayer("Default"))
@@ -111,7 +111,7 @@ public class GrappleGun : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKeyUp(ControlMapping.KeyMap["Grappling Hook"]))
+        else if (Input.GetKeyUp(ControlMapping.KeyMap["Grappling Hook"]) && ControlMapping.validateInput())
         {
             DisableGrappleHook();
         }

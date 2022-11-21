@@ -94,7 +94,6 @@ public class AdjustStaminaBar : MonoBehaviour
         {
             // normalize transparency reduction value
             var normalA = (currStamina.gameObject.GetComponent<Image>().color.a - (fadeRate * Time.deltaTime));
-            Debug.Log("FADING STAMINA");
             currStamina.gameObject.GetComponent<Image>().color = new Color(
                 currStamina.gameObject.GetComponent<Image>().color.r,
                 currStamina.gameObject.GetComponent<Image>().color.g,

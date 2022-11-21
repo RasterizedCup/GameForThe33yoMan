@@ -31,6 +31,7 @@ public class CharMovement : CharStats
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
         Screen.SetResolution(2560, 1440, FullScreenMode.MaximizedWindow);
         //Application.targetFrameRate = 60;
+
         feet = GetComponentInChildren<Transform>();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -49,6 +50,11 @@ public class CharMovement : CharStats
     // Update is called once per frame
     void Update()
     {
+        if (!ControlMapping.validateInput())
+        {
+            rb2d.velocity = Vector2.zero;
+        }
+
         checkCutscene();
         // setCoyote();
         if (!Snailian.isSnailianActive && !FilHealth.isDead)
@@ -116,7 +122,7 @@ public class CharMovement : CharStats
         if (!ActiveToggle.isMenuActive)
         {
             // sim physics based, less snappy, independent to frame rate
-            if (Input.GetKey(ControlMapping.KeyMap["Move Right"]) && velocity.x < maxVelocity)
+            if (Input.GetKey(ControlMapping.KeyMap["Move Right"]) && velocity.x < maxVelocity && ControlMapping.validateInput())
             {
                 if (velocity.x < 0)
                     velocity.x += Time.deltaTime * velRedirect;
@@ -125,7 +131,7 @@ public class CharMovement : CharStats
                 if (velocity.x > maxVelocity)
                     velocity.x = maxVelocity;
             }
-            if (Input.GetKey(ControlMapping.KeyMap["Move Left"]) && velocity.x > maxVelocity * -1)
+            if (Input.GetKey(ControlMapping.KeyMap["Move Left"]) && velocity.x > maxVelocity * -1 && ControlMapping.validateInput())
             {
                 if (velocity.x > 0)
                     velocity.x -= Time.deltaTime * velRedirect;
@@ -135,12 +141,12 @@ public class CharMovement : CharStats
                     velocity.x = maxVelocity * -1;
             }
         }
-        if((!Input.GetKey(ControlMapping.KeyMap["Move Left"]) && !Input.GetKey(ControlMapping.KeyMap["Move Right"])) || !grounded())
+        if((!Input.GetKey(ControlMapping.KeyMap["Move Left"]) && !Input.GetKey(ControlMapping.KeyMap["Move Right"]) && ControlMapping.validateInput()) || !grounded())
         {
             filSprite.localRotation = Quaternion.Euler(filSprite.localRotation.eulerAngles.x, filSprite.localRotation.eulerAngles.y, filSprite.localRotation.eulerAngles.z);
         }
         // natural deceleration lateral
-        if((!Input.GetKey(ControlMapping.KeyMap["Move Left"]) && !Input.GetKey(ControlMapping.KeyMap["Move Right"]) && !GrappleRope.disableGravitySim) || ActiveToggle.isMenuActive)
+        if((!Input.GetKey(ControlMapping.KeyMap["Move Left"]) && !Input.GetKey(ControlMapping.KeyMap["Move Right"]) && ControlMapping.validateInput() && !GrappleRope.disableGravitySim) || ActiveToggle.isMenuActive)
         {
             if (!grounded())    // if not on ground, decelerate more slowly
             {

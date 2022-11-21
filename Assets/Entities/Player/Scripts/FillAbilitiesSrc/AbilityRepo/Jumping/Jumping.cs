@@ -54,7 +54,7 @@ public class Jumping : MonoBehaviour
 
         // handle jump logic
         Vector2 velocity = rb2d.velocity;
-        if (Input.GetKeyDown(ControlMapping.KeyMap["Jump"]) && (grounded() || canDoubleJump) && !GrappleRope.disableGravitySim)
+        if (Input.GetKeyDown(ControlMapping.KeyMap["Jump"]) && (grounded() || canDoubleJump) && !GrappleRope.disableGravitySim && ControlMapping.validateInput())
         {
             // handle jumptypes here
             // double jump
@@ -76,6 +76,7 @@ public class Jumping : MonoBehaviour
             }
             AbilityTrigger.Play();
         }
+
         // gravity sim rising
         if (rb2d.velocity.y > 0 && !grounded())
         {
