@@ -25,6 +25,9 @@ TagManager:
   - MotLaser
   - VisualMap
   - CheckpointRegion
+  - vertWall
+  - horizWall
+  - FillyAxe
   layers:
   - Default
   - TransparentFX

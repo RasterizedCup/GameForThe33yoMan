@@ -8,16 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Sandbox Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: 73a2766764b5a5c47b95d6e601a7b1b9
   - enabled: 0
     path: Assets/Scenes/Overworld.unity
     guid: 65fc471dc99b15345908304a666bdbf1
   - enabled: 0
-    path: Assets/Scenes/TitleScene.unity
-    guid: 73a2766764b5a5c47b95d6e601a7b1b9
-  - enabled: 0
     path: Assets/Scenes/sb2.unity
     guid: 460a3049d0685a946a7a9a2f18a2fa92
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Level 1-0.unity
     guid: 1c56903c3d13f5744b885696d0937039
   - enabled: 0
@@ -30,4 +30,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Artwork/Dark Platformer SET1/Scenes/Demo.unity
     guid: 182c82bd89755e943889414bf1256aee
+  - enabled: 1
+    path: Assets/Scenes/Level 1-2.unity
+    guid: 942ed7737e147cc45b843e26595c0f2b
   m_configObjects: {}
