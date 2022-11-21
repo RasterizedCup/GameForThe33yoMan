@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class ComputerNoteBlock : MonoBehaviour
 {
     public AudioSource soundObj;
     public SpriteRenderer spriteObj;
-    public Light2D lightObj;
+    public UnityEngine.Rendering.Universal.Light2D lightObj;
     float currTime;
     float DisableBlockDelay;
 
-    public ComputerNoteBlock(AudioSource sound, SpriteRenderer sprite, Light2D light)
+    public ComputerNoteBlock(AudioSource sound, SpriteRenderer sprite, UnityEngine.Rendering.Universal.Light2D light)
     {
         DisableBlockDelay = 1;
         soundObj = sound;
@@ -109,7 +109,7 @@ public class ColorSequenceController : MonoBehaviour
             noteBlocks.Add(new ComputerNoteBlock(
                 BaseBlockInputList[i].GetComponent<AudioSource>(),
                 BaseBlockInputList[i].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>(),
-                BaseBlockInputList[i].transform.GetChild(1).gameObject.GetComponent<Light2D>()));
+                BaseBlockInputList[i].transform.GetChild(1).gameObject.GetComponent<UnityEngine.Rendering.Universal.Light2D>()));
         }
     }
 
@@ -242,9 +242,9 @@ public class ColorSequenceController : MonoBehaviour
         if(currTime + triggerComputerSuccessDelay < Time.time)
         {
             incompleteObjs[currLightToggle].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-            incompleteObjs[currLightToggle].transform.GetChild(1).GetComponent<Light2D>().intensity = 0;
+            incompleteObjs[currLightToggle].transform.GetChild(1).GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 0;
             successObjs[currLightToggle].transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            successObjs[currLightToggle].transform.GetChild(1).GetComponent<Light2D>().intensity = 2;
+            successObjs[currLightToggle].transform.GetChild(1).GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity = 2;
             currLightToggle++;
             triggerComputerSuccess = false;
         }

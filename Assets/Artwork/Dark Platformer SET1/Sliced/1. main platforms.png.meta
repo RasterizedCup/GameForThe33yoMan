@@ -1290,7 +1290,7 @@ TextureImporter:
       213: 21300856
     second: 1. main platforms_428
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1311,6 +1311,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1320,8 +1321,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -1349,6 +1350,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1388,6 +1390,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -10420,6 +10434,436 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      1. main platforms_357: 21300714
+      1. main platforms_278: 21300556
+      1. main platforms_384: 21300768
+      1. main platforms_401: 21300802
+      1. main platforms_27: 21300054
+      1. main platforms_359: 21300718
+      1. main platforms_354: 21300708
+      1. main platforms_2: 21300004
+      1. main platforms_70: 21300140
+      1. main platforms_168: 21300336
+      1. main platforms_40: 21300080
+      1. main platforms_102: 21300204
+      1. main platforms_17: 21300034
+      1. main platforms_227: 21300454
+      1. main platforms_118: 21300236
+      1. main platforms_409: 21300818
+      1. main platforms_167: 21300334
+      1. main platforms_222: 21300444
+      1. main platforms_200: 21300400
+      1. main platforms_140: 21300280
+      1. main platforms_249: 21300498
+      1. main platforms_310: 21300620
+      1. main platforms_0: 21300000
+      1. main platforms_329: 21300658
+      1. main platforms_418: 21300836
+      1. main platforms_50: 21300100
+      1. main platforms_387: 21300774
+      1. main platforms_9: 21300018
+      1. main platforms_408: 21300816
+      1. main platforms_195: 21300390
+      1. main platforms_255: 21300510
+      1. main platforms_403: 21300806
+      1. main platforms_45: 21300090
+      1. main platforms_291: 21300582
+      1. main platforms_258: 21300516
+      1. main platforms_326: 21300652
+      1. main platforms_106: 21300212
+      1. main platforms_277: 21300554
+      1. main platforms_31: 21300062
+      1. main platforms_321: 21300642
+      1. main platforms_23: 21300046
+      1. main platforms_420: 21300840
+      1. main platforms_320: 21300640
+      1. main platforms_119: 21300238
+      1. main platforms_131: 21300262
+      1. main platforms_400: 21300800
+      1. main platforms_60: 21300120
+      1. main platforms_362: 21300724
+      1. main platforms_88: 21300176
+      1. main platforms_299: 21300598
+      1. main platforms_72: 21300144
+      1. main platforms_265: 21300530
+      1. main platforms_63: 21300126
+      1. main platforms_153: 21300306
+      1. main platforms_341: 21300682
+      1. main platforms_177: 21300354
+      1. main platforms_180: 21300360
+      1. main platforms_411: 21300822
+      1. main platforms_61: 21300122
+      1. main platforms_169: 21300338
+      1. main platforms_59: 21300118
+      1. main platforms_406: 21300812
+      1. main platforms_210: 21300420
+      1. main platforms_205: 21300410
+      1. main platforms_196: 21300392
+      1. main platforms_251: 21300502
+      1. main platforms_143: 21300286
+      1. main platforms_399: 21300798
+      1. main platforms_413: 21300826
+      1. main platforms_257: 21300514
+      1. main platforms_343: 21300686
+      1. main platforms_134: 21300268
+      1. main platforms_394: 21300788
+      1. main platforms_325: 21300650
+      1. main platforms_298: 21300596
+      1. main platforms_344: 21300688
+      1. main platforms_80: 21300160
+      1. main platforms_10: 21300020
+      1. main platforms_305: 21300610
+      1. main platforms_261: 21300522
+      1. main platforms_182: 21300364
+      1. main platforms_128: 21300256
+      1. main platforms_391: 21300782
+      1. main platforms_105: 21300210
+      1. main platforms_139: 21300278
+      1. main platforms_307: 21300614
+      1. main platforms_97: 21300194
+      1. main platforms_95: 21300190
+      1. main platforms_82: 21300164
+      1. main platforms_389: 21300778
+      1. main platforms_397: 21300794
+      1. main platforms_385: 21300770
+      1. main platforms_62: 21300124
+      1. main platforms_286: 21300572
+      1. main platforms_342: 21300684
+      1. main platforms_115: 21300230
+      1. main platforms_256: 21300512
+      1. main platforms_22: 21300044
+      1. main platforms_306: 21300612
+      1. main platforms_122: 21300244
+      1. main platforms_5: 21300010
+      1. main platforms_314: 21300628
+      1. main platforms_74: 21300148
+      1. main platforms_254: 21300508
+      1. main platforms_121: 21300242
+      1. main platforms_154: 21300308
+      1. main platforms_336: 21300672
+      1. main platforms_29: 21300058
+      1. main platforms_174: 21300348
+      1. main platforms_264: 21300528
+      1. main platforms_292: 21300584
+      1. main platforms_96: 21300192
+      1. main platforms_300: 21300600
+      1. main platforms_380: 21300760
+      1. main platforms_157: 21300314
+      1. main platforms_266: 21300532
+      1. main platforms_417: 21300834
+      1. main platforms_270: 21300540
+      1. main platforms_216: 21300432
+      1. main platforms_290: 21300580
+      1. main platforms_133: 21300266
+      1. main platforms_312: 21300624
+      1. main platforms_152: 21300304
+      1. main platforms_260: 21300520
+      1. main platforms_64: 21300128
+      1. main platforms_58: 21300116
+      1. main platforms_279: 21300558
+      1. main platforms_247: 21300494
+      1. main platforms_146: 21300292
+      1. main platforms_274: 21300548
+      1. main platforms_379: 21300758
+      1. main platforms_239: 21300478
+      1. main platforms_207: 21300414
+      1. main platforms_94: 21300188
+      1. main platforms_147: 21300294
+      1. main platforms_191: 21300382
+      1. main platforms_129: 21300258
+      1. main platforms_223: 21300446
+      1. main platforms_110: 21300220
+      1. main platforms_99: 21300198
+      1. main platforms_21: 21300042
+      1. main platforms_304: 21300608
+      1. main platforms_212: 21300424
+      1. main platforms_381: 21300762
+      1. main platforms_7: 21300014
+      1. main platforms_328: 21300656
+      1. main platforms_364: 21300728
+      1. main platforms_202: 21300404
+      1. main platforms_108: 21300216
+      1. main platforms_86: 21300172
+      1. main platforms_248: 21300496
+      1. main platforms_138: 21300276
+      1. main platforms_162: 21300324
+      1. main platforms_369: 21300738
+      1. main platforms_149: 21300298
+      1. main platforms_185: 21300370
+      1. main platforms_179: 21300358
+      1. main platforms_425: 21300850
+      1. main platforms_407: 21300814
+      1. main platforms_85: 21300170
+      1. main platforms_41: 21300082
+      1. main platforms_79: 21300158
+      1. main platforms_116: 21300232
+      1. main platforms_112: 21300224
+      1. main platforms_224: 21300448
+      1. main platforms_319: 21300638
+      1. main platforms_76: 21300152
+      1. main platforms_103: 21300206
+      1. main platforms_390: 21300780
+      1. main platforms_232: 21300464
+      1. main platforms_55: 21300110
+      1. main platforms_42: 21300084
+      1. main platforms_272: 21300544
+      1. main platforms_49: 21300098
+      1. main platforms_426: 21300852
+      1. main platforms_35: 21300070
+      1. main platforms_91: 21300182
+      1. main platforms_338: 21300676
+      1. main platforms_166: 21300332
+      1. main platforms_294: 21300588
+      1. main platforms_136: 21300272
+      1. main platforms_421: 21300842
+      1. main platforms_109: 21300218
+      1. main platforms_6: 21300012
+      1. main platforms_36: 21300072
+      1. main platforms_37: 21300074
+      1. main platforms_208: 21300416
+      1. main platforms_333: 21300666
+      1. main platforms_187: 21300374
+      1. main platforms_132: 21300264
+      1. main platforms_3: 21300006
+      1. main platforms_18: 21300036
+      1. main platforms_176: 21300352
+      1. main platforms_198: 21300396
+      1. main platforms_416: 21300832
+      1. main platforms_53: 21300106
+      1. main platforms_241: 21300482
+      1. main platforms_323: 21300646
+      1. main platforms_412: 21300824
+      1. main platforms_228: 21300456
+      1. main platforms_340: 21300680
+      1. main platforms_419: 21300838
+      1. main platforms_144: 21300288
+      1. main platforms_370: 21300740
+      1. main platforms_218: 21300436
+      1. main platforms_238: 21300476
+      1. main platforms_220: 21300440
+      1. main platforms_46: 21300092
+      1. main platforms_160: 21300320
+      1. main platforms_54: 21300108
+      1. main platforms_181: 21300362
+      1. main platforms_38: 21300076
+      1. main platforms_100: 21300200
+      1. main platforms_32: 21300064
+      1. main platforms_66: 21300132
+      1. main platforms_395: 21300790
+      1. main platforms_52: 21300104
+      1. main platforms_75: 21300150
+      1. main platforms_164: 21300328
+      1. main platforms_396: 21300792
+      1. main platforms_123: 21300246
+      1. main platforms_184: 21300368
+      1. main platforms_51: 21300102
+      1. main platforms_221: 21300442
+      1. main platforms_73: 21300146
+      1. main platforms_98: 21300196
+      1. main platforms_172: 21300344
+      1. main platforms_246: 21300492
+      1. main platforms_237: 21300474
+      1. main platforms_150: 21300300
+      1. main platforms_217: 21300434
+      1. main platforms_302: 21300604
+      1. main platforms_84: 21300168
+      1. main platforms_287: 21300574
+      1. main platforms_348: 21300696
+      1. main platforms_234: 21300468
+      1. main platforms_410: 21300820
+      1. main platforms_114: 21300228
+      1. main platforms_303: 21300606
+      1. main platforms_378: 21300756
+      1. main platforms_87: 21300174
+      1. main platforms_126: 21300252
+      1. main platforms_159: 21300318
+      1. main platforms_15: 21300030
+      1. main platforms_125: 21300250
+      1. main platforms_148: 21300296
+      1. main platforms_192: 21300384
+      1. main platforms_107: 21300214
+      1. main platforms_375: 21300750
+      1. main platforms_8: 21300016
+      1. main platforms_230: 21300460
+      1. main platforms_282: 21300564
+      1. main platforms_158: 21300316
+      1. main platforms_197: 21300394
+      1. main platforms_145: 21300290
+      1. main platforms_367: 21300734
+      1. main platforms_372: 21300744
+      1. main platforms_26: 21300052
+      1. main platforms_175: 21300350
+      1. main platforms_423: 21300846
+      1. main platforms_209: 21300418
+      1. main platforms_186: 21300372
+      1. main platforms_19: 21300038
+      1. main platforms_353: 21300706
+      1. main platforms_47: 21300094
+      1. main platforms_361: 21300722
+      1. main platforms_368: 21300736
+      1. main platforms_414: 21300828
+      1. main platforms_424: 21300848
+      1. main platforms_57: 21300114
+      1. main platforms_236: 21300472
+      1. main platforms_352: 21300704
+      1. main platforms_13: 21300026
+      1. main platforms_14: 21300028
+      1. main platforms_331: 21300662
+      1. main platforms_193: 21300386
+      1. main platforms_12: 21300024
+      1. main platforms_56: 21300112
+      1. main platforms_65: 21300130
+      1. main platforms_219: 21300438
+      1. main platforms_120: 21300240
+      1. main platforms_178: 21300356
+      1. main platforms_243: 21300486
+      1. main platforms_206: 21300412
+      1. main platforms_242: 21300484
+      1. main platforms_111: 21300222
+      1. main platforms_393: 21300786
+      1. main platforms_374: 21300748
+      1. main platforms_43: 21300086
+      1. main platforms_71: 21300142
+      1. main platforms_351: 21300702
+      1. main platforms_327: 21300654
+      1. main platforms_240: 21300480
+      1. main platforms_337: 21300674
+      1. main platforms_170: 21300340
+      1. main platforms_382: 21300764
+      1. main platforms_404: 21300808
+      1. main platforms_317: 21300634
+      1. main platforms_271: 21300542
+      1. main platforms_156: 21300312
+      1. main platforms_113: 21300226
+      1. main platforms_253: 21300506
+      1. main platforms_313: 21300626
+      1. main platforms_163: 21300326
+      1. main platforms_33: 21300066
+      1. main platforms_297: 21300594
+      1. main platforms_276: 21300552
+      1. main platforms_388: 21300776
+      1. main platforms_204: 21300408
+      1. main platforms_11: 21300022
+      1. main platforms_190: 21300380
+      1. main platforms_161: 21300322
+      1. main platforms_104: 21300208
+      1. main platforms_311: 21300622
+      1. main platforms_171: 21300342
+      1. main platforms_250: 21300500
+      1. main platforms_301: 21300602
+      1. main platforms_383: 21300766
+      1. main platforms_330: 21300660
+      1. main platforms_335: 21300670
+      1. main platforms_295: 21300590
+      1. main platforms_16: 21300032
+      1. main platforms_263: 21300526
+      1. main platforms_427: 21300854
+      1. main platforms_316: 21300632
+      1. main platforms_350: 21300700
+      1. main platforms_44: 21300088
+      1. main platforms_355: 21300710
+      1. main platforms_30: 21300060
+      1. main platforms_415: 21300830
+      1. main platforms_69: 21300138
+      1. main platforms_332: 21300664
+      1. main platforms_124: 21300248
+      1. main platforms_318: 21300636
+      1. main platforms_392: 21300784
+      1. main platforms_25: 21300050
+      1. main platforms_324: 21300648
+      1. main platforms_165: 21300330
+      1. main platforms_67: 21300134
+      1. main platforms_201: 21300402
+      1. main platforms_77: 21300154
+      1. main platforms_360: 21300720
+      1. main platforms_231: 21300462
+      1. main platforms_386: 21300772
+      1. main platforms_78: 21300156
+      1. main platforms_267: 21300534
+      1. main platforms_334: 21300668
+      1. main platforms_194: 21300388
+      1. main platforms_155: 21300310
+      1. main platforms_199: 21300398
+      1. main platforms_127: 21300254
+      1. main platforms_137: 21300274
+      1. main platforms_309: 21300618
+      1. main platforms_151: 21300302
+      1. main platforms_34: 21300068
+      1. main platforms_83: 21300166
+      1. main platforms_20: 21300040
+      1. main platforms_275: 21300550
+      1. main platforms_281: 21300562
+      1. main platforms_358: 21300716
+      1. main platforms_188: 21300376
+      1. main platforms_233: 21300466
+      1. main platforms_366: 21300732
+      1. main platforms_293: 21300586
+      1. main platforms_322: 21300644
+      1. main platforms_142: 21300284
+      1. main platforms_280: 21300560
+      1. main platforms_405: 21300810
+      1. main platforms_203: 21300406
+      1. main platforms_28: 21300056
+      1. main platforms_135: 21300270
+      1. main platforms_189: 21300378
+      1. main platforms_346: 21300692
+      1. main platforms_377: 21300754
+      1. main platforms_315: 21300630
+      1. main platforms_235: 21300470
+      1. main platforms_347: 21300694
+      1. main platforms_283: 21300566
+      1. main platforms_363: 21300726
+      1. main platforms_252: 21300504
+      1. main platforms_289: 21300578
+      1. main platforms_215: 21300430
+      1. main platforms_296: 21300592
+      1. main platforms_428: 21300856
+      1. main platforms_376: 21300752
+      1. main platforms_226: 21300452
+      1. main platforms_90: 21300180
+      1. main platforms_284: 21300568
+      1. main platforms_93: 21300186
+      1. main platforms_245: 21300490
+      1. main platforms_39: 21300078
+      1. main platforms_422: 21300844
+      1. main platforms_308: 21300616
+      1. main platforms_183: 21300366
+      1. main platforms_48: 21300096
+      1. main platforms_402: 21300804
+      1. main platforms_130: 21300260
+      1. main platforms_225: 21300450
+      1. main platforms_345: 21300690
+      1. main platforms_259: 21300518
+      1. main platforms_356: 21300712
+      1. main platforms_371: 21300742
+      1. main platforms_262: 21300524
+      1. main platforms_373: 21300746
+      1. main platforms_339: 21300678
+      1. main platforms_365: 21300730
+      1. main platforms_101: 21300202
+      1. main platforms_229: 21300458
+      1. main platforms_81: 21300162
+      1. main platforms_211: 21300422
+      1. main platforms_89: 21300178
+      1. main platforms_141: 21300282
+      1. main platforms_288: 21300576
+      1. main platforms_273: 21300546
+      1. main platforms_398: 21300796
+      1. main platforms_4: 21300008
+      1. main platforms_214: 21300428
+      1. main platforms_349: 21300698
+      1. main platforms_92: 21300184
+      1. main platforms_213: 21300426
+      1. main platforms_24: 21300048
+      1. main platforms_173: 21300346
+      1. main platforms_285: 21300570
+      1. main platforms_68: 21300136
+      1. main platforms_117: 21300234
+      1. main platforms_268: 21300536
+      1. main platforms_244: 21300488
+      1. main platforms_269: 21300538
+      1. main platforms_1: 21300002
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

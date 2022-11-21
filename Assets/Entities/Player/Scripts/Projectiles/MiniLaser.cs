@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class MiniLaser : FilProjectile
 {
     public Rigidbody2D rb2d;
     public CapsuleCollider2D col;
-    public Light2D laserLight;
+    public UnityEngine.Rendering.Universal.Light2D laserLight;
     public SpriteRenderer laserSprite;
     public float maxIntensity, minIntensity, lightOscRate;
     float maxLifeduration;

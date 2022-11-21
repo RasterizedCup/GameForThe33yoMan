@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class LaserBeam : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class LaserBeam : MonoBehaviour
     public float firstMaxIntensity;
     public float maxIntensity, minIntensity, flickerRate;
     bool flickerIsDescending;
-    Light2D LaserLight;
+    UnityEngine.Rendering.Universal.Light2D LaserLight;
     float laserStartTimeDelta;
     bool initLaser;
     bool isCurrentlyLasering;
@@ -28,7 +28,7 @@ public class LaserBeam : MonoBehaviour
 
     bool toggleParticles;
     public ParticleSystem laserParticles;
-    public Light2D worldLight;
+    public UnityEngine.Rendering.Universal.Light2D worldLight;
     public float worldLightMin, worldLightMax;
     public float worldLightChangeRate;
 
@@ -37,7 +37,7 @@ public class LaserBeam : MonoBehaviour
     {
         toggleParticles = true;
         isCurrentlyLasering = false;
-        LaserLight = GameObject.Find("LaserLight").GetComponent<Light2D>();
+        LaserLight = GameObject.Find("LaserLight").GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         LaserLight.intensity = firstMaxIntensity;
         LaserLight.enabled = false;
         flickerIsDescending = true;

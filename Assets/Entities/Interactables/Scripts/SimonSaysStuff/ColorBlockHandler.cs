@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class ColorBlockHandler : MonoBehaviour
 {
     public ColorSequenceController colorSeqBrain;
     public int numSeqValue;
-    public Light2D lightSource;
-    public Light2D successLight;
+    public UnityEngine.Rendering.Universal.Light2D lightSource;
+    public UnityEngine.Rendering.Universal.Light2D successLight;
     public SpriteRenderer disabledBlock;
     public SpriteRenderer enabledBlock;
     public SpriteRenderer successBlock;

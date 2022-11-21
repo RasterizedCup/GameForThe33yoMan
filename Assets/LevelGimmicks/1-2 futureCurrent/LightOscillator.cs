@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class LightOscillator : MonoBehaviour
 {
-    Light2D laserLight;
+    UnityEngine.Rendering.Universal.Light2D laserLight;
     public float maxIntensity, minIntensity, flickerRate;
     bool flickerUp;
     // Start is called before the first frame update
     void Start()
     {
-        laserLight = GetComponent<Light2D>();
+        laserLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         laserLight.intensity = maxIntensity;
     }
 

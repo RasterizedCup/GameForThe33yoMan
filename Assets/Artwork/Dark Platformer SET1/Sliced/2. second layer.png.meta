@@ -1449,7 +1449,7 @@ TextureImporter:
       213: 21300962
     second: 2. second layer_481
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1470,6 +1470,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1479,8 +1480,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -1508,6 +1509,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1557,6 +1559,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -11692,6 +11706,489 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      2. second layer_280: 21300560
+      2. second layer_307: 21300614
+      2. second layer_247: 21300494
+      2. second layer_417: 21300834
+      2. second layer_318: 21300636
+      2. second layer_265: 21300530
+      2. second layer_278: 21300556
+      2. second layer_20: 21300040
+      2. second layer_309: 21300618
+      2. second layer_262: 21300524
+      2. second layer_399: 21300798
+      2. second layer_69: 21300138
+      2. second layer_340: 21300680
+      2. second layer_435: 21300870
+      2. second layer_66: 21300132
+      2. second layer_87: 21300174
+      2. second layer_155: 21300310
+      2. second layer_63: 21300126
+      2. second layer_274: 21300548
+      2. second layer_393: 21300786
+      2. second layer_122: 21300244
+      2. second layer_135: 21300270
+      2. second layer_76: 21300152
+      2. second layer_419: 21300838
+      2. second layer_115: 21300230
+      2. second layer_303: 21300606
+      2. second layer_26: 21300052
+      2. second layer_385: 21300770
+      2. second layer_256: 21300512
+      2. second layer_312: 21300624
+      2. second layer_13: 21300026
+      2. second layer_170: 21300340
+      2. second layer_139: 21300278
+      2. second layer_190: 21300380
+      2. second layer_107: 21300214
+      2. second layer_347: 21300694
+      2. second layer_474: 21300948
+      2. second layer_61: 21300122
+      2. second layer_421: 21300842
+      2. second layer_377: 21300754
+      2. second layer_137: 21300274
+      2. second layer_60: 21300120
+      2. second layer_209: 21300418
+      2. second layer_438: 21300876
+      2. second layer_48: 21300096
+      2. second layer_423: 21300846
+      2. second layer_356: 21300712
+      2. second layer_335: 21300670
+      2. second layer_198: 21300396
+      2. second layer_49: 21300098
+      2. second layer_407: 21300814
+      2. second layer_51: 21300102
+      2. second layer_409: 21300818
+      2. second layer_108: 21300216
+      2. second layer_200: 21300400
+      2. second layer_45: 21300090
+      2. second layer_225: 21300450
+      2. second layer_181: 21300362
+      2. second layer_53: 21300106
+      2. second layer_169: 21300338
+      2. second layer_113: 21300226
+      2. second layer_153: 21300306
+      2. second layer_133: 21300266
+      2. second layer_381: 21300762
+      2. second layer_82: 21300164
+      2. second layer_402: 21300804
+      2. second layer_54: 21300108
+      2. second layer_132: 21300264
+      2. second layer_10: 21300020
+      2. second layer_119: 21300238
+      2. second layer_147: 21300294
+      2. second layer_34: 21300068
+      2. second layer_406: 21300812
+      2. second layer_128: 21300256
+      2. second layer_344: 21300688
+      2. second layer_174: 21300348
+      2. second layer_152: 21300304
+      2. second layer_352: 21300704
+      2. second layer_397: 21300794
+      2. second layer_371: 21300742
+      2. second layer_480: 21300960
+      2. second layer_270: 21300540
+      2. second layer_15: 21300030
+      2. second layer_22: 21300044
+      2. second layer_219: 21300438
+      2. second layer_23: 21300046
+      2. second layer_355: 21300710
+      2. second layer_341: 21300682
+      2. second layer_358: 21300716
+      2. second layer_25: 21300050
+      2. second layer_319: 21300638
+      2. second layer_249: 21300498
+      2. second layer_375: 21300750
+      2. second layer_73: 21300146
+      2. second layer_58: 21300116
+      2. second layer_114: 21300228
+      2. second layer_3: 21300006
+      2. second layer_134: 21300268
+      2. second layer_302: 21300604
+      2. second layer_184: 21300368
+      2. second layer_291: 21300582
+      2. second layer_336: 21300672
+      2. second layer_117: 21300234
+      2. second layer_206: 21300412
+      2. second layer_470: 21300940
+      2. second layer_46: 21300092
+      2. second layer_100: 21300200
+      2. second layer_7: 21300014
+      2. second layer_156: 21300312
+      2. second layer_362: 21300724
+      2. second layer_458: 21300916
+      2. second layer_157: 21300314
+      2. second layer_221: 21300442
+      2. second layer_437: 21300874
+      2. second layer_121: 21300242
+      2. second layer_410: 21300820
+      2. second layer_210: 21300420
+      2. second layer_293: 21300586
+      2. second layer_471: 21300942
+      2. second layer_120: 21300240
+      2. second layer_330: 21300660
+      2. second layer_327: 21300654
+      2. second layer_374: 21300748
+      2. second layer_38: 21300076
+      2. second layer_88: 21300176
+      2. second layer_466: 21300932
+      2. second layer_177: 21300354
+      2. second layer_242: 21300484
+      2. second layer_476: 21300952
+      2. second layer_14: 21300028
+      2. second layer_154: 21300308
+      2. second layer_299: 21300598
+      2. second layer_230: 21300460
+      2. second layer_149: 21300298
+      2. second layer_334: 21300668
+      2. second layer_11: 21300022
+      2. second layer_465: 21300930
+      2. second layer_332: 21300664
+      2. second layer_166: 21300332
+      2. second layer_427: 21300854
+      2. second layer_373: 21300746
+      2. second layer_105: 21300210
+      2. second layer_182: 21300364
+      2. second layer_295: 21300590
+      2. second layer_37: 21300074
+      2. second layer_446: 21300892
+      2. second layer_360: 21300720
+      2. second layer_298: 21300596
+      2. second layer_241: 21300482
+      2. second layer_68: 21300136
+      2. second layer_19: 21300038
+      2. second layer_467: 21300934
+      2. second layer_420: 21300840
+      2. second layer_276: 21300552
+      2. second layer_342: 21300684
+      2. second layer_450: 21300900
+      2. second layer_179: 21300358
+      2. second layer_52: 21300104
+      2. second layer_89: 21300178
+      2. second layer_365: 21300730
+      2. second layer_475: 21300950
+      2. second layer_124: 21300248
+      2. second layer_41: 21300082
+      2. second layer_288: 21300576
+      2. second layer_161: 21300322
+      2. second layer_384: 21300768
+      2. second layer_188: 21300376
+      2. second layer_469: 21300938
+      2. second layer_64: 21300128
+      2. second layer_138: 21300276
+      2. second layer_62: 21300124
+      2. second layer_185: 21300370
+      2. second layer_6: 21300012
+      2. second layer_93: 21300186
+      2. second layer_99: 21300198
+      2. second layer_131: 21300262
+      2. second layer_171: 21300342
+      2. second layer_217: 21300434
+      2. second layer_218: 21300436
+      2. second layer_429: 21300858
+      2. second layer_222: 21300444
+      2. second layer_414: 21300828
+      2. second layer_461: 21300922
+      2. second layer_383: 21300766
+      2. second layer_125: 21300250
+      2. second layer_214: 21300428
+      2. second layer_283: 21300566
+      2. second layer_457: 21300914
+      2. second layer_17: 21300034
+      2. second layer_234: 21300468
+      2. second layer_346: 21300692
+      2. second layer_394: 21300788
+      2. second layer_264: 21300528
+      2. second layer_401: 21300802
+      2. second layer_349: 21300698
+      2. second layer_313: 21300626
+      2. second layer_142: 21300284
+      2. second layer_292: 21300584
+      2. second layer_372: 21300744
+      2. second layer_387: 21300774
+      2. second layer_16: 21300032
+      2. second layer_235: 21300470
+      2. second layer_103: 21300206
+      2. second layer_447: 21300894
+      2. second layer_21: 21300042
+      2. second layer_207: 21300414
+      2. second layer_243: 21300486
+      2. second layer_118: 21300236
+      2. second layer_254: 21300508
+      2. second layer_259: 21300518
+      2. second layer_150: 21300300
+      2. second layer_338: 21300676
+      2. second layer_285: 21300570
+      2. second layer_296: 21300592
+      2. second layer_162: 21300324
+      2. second layer_92: 21300184
+      2. second layer_143: 21300286
+      2. second layer_47: 21300094
+      2. second layer_102: 21300204
+      2. second layer_35: 21300070
+      2. second layer_148: 21300296
+      2. second layer_441: 21300882
+      2. second layer_306: 21300612
+      2. second layer_456: 21300912
+      2. second layer_86: 21300172
+      2. second layer_80: 21300160
+      2. second layer_251: 21300502
+      2. second layer_96: 21300192
+      2. second layer_233: 21300466
+      2. second layer_287: 21300574
+      2. second layer_266: 21300532
+      2. second layer_363: 21300726
+      2. second layer_368: 21300736
+      2. second layer_282: 21300564
+      2. second layer_328: 21300656
+      2. second layer_418: 21300836
+      2. second layer_460: 21300920
+      2. second layer_226: 21300452
+      2. second layer_246: 21300492
+      2. second layer_388: 21300776
+      2. second layer_364: 21300728
+      2. second layer_109: 21300218
+      2. second layer_305: 21300610
+      2. second layer_50: 21300100
+      2. second layer_345: 21300690
+      2. second layer_127: 21300254
+      2. second layer_257: 21300514
+      2. second layer_27: 21300054
+      2. second layer_194: 21300388
+      2. second layer_195: 21300390
+      2. second layer_310: 21300620
+      2. second layer_1: 21300002
+      2. second layer_398: 21300796
+      2. second layer_65: 21300130
+      2. second layer_273: 21300546
+      2. second layer_434: 21300868
+      2. second layer_136: 21300272
+      2. second layer_12: 21300024
+      2. second layer_236: 21300472
+      2. second layer_70: 21300140
+      2. second layer_462: 21300924
+      2. second layer_245: 21300490
+      2. second layer_31: 21300062
+      2. second layer_211: 21300422
+      2. second layer_379: 21300758
+      2. second layer_445: 21300890
+      2. second layer_479: 21300958
+      2. second layer_353: 21300706
+      2. second layer_428: 21300856
+      2. second layer_163: 21300326
+      2. second layer_464: 21300928
+      2. second layer_231: 21300462
+      2. second layer_380: 21300760
+      2. second layer_442: 21300884
+      2. second layer_248: 21300496
+      2. second layer_396: 21300792
+      2. second layer_425: 21300850
+      2. second layer_158: 21300316
+      2. second layer_144: 21300288
+      2. second layer_315: 21300630
+      2. second layer_337: 21300674
+      2. second layer_141: 21300282
+      2. second layer_390: 21300780
+      2. second layer_95: 21300190
+      2. second layer_323: 21300646
+      2. second layer_90: 21300180
+      2. second layer_258: 21300516
+      2. second layer_389: 21300778
+      2. second layer_78: 21300156
+      2. second layer_400: 21300800
+      2. second layer_449: 21300898
+      2. second layer_451: 21300902
+      2. second layer_191: 21300382
+      2. second layer_175: 21300350
+      2. second layer_110: 21300220
+      2. second layer_308: 21300616
+      2. second layer_343: 21300686
+      2. second layer_215: 21300430
+      2. second layer_2: 21300004
+      2. second layer_413: 21300826
+      2. second layer_44: 21300088
+      2. second layer_322: 21300644
+      2. second layer_81: 21300162
+      2. second layer_317: 21300634
+      2. second layer_426: 21300852
+      2. second layer_481: 21300962
+      2. second layer_30: 21300060
+      2. second layer_252: 21300504
+      2. second layer_98: 21300196
+      2. second layer_333: 21300666
+      2. second layer_59: 21300118
+      2. second layer_408: 21300816
+      2. second layer_430: 21300860
+      2. second layer_359: 21300718
+      2. second layer_101: 21300202
+      2. second layer_339: 21300678
+      2. second layer_448: 21300896
+      2. second layer_316: 21300632
+      2. second layer_240: 21300480
+      2. second layer_106: 21300212
+      2. second layer_126: 21300252
+      2. second layer_311: 21300622
+      2. second layer_415: 21300830
+      2. second layer_325: 21300650
+      2. second layer_24: 21300048
+      2. second layer_329: 21300658
+      2. second layer_28: 21300056
+      2. second layer_286: 21300572
+      2. second layer_361: 21300722
+      2. second layer_227: 21300454
+      2. second layer_33: 21300066
+      2. second layer_36: 21300072
+      2. second layer_326: 21300652
+      2. second layer_165: 21300330
+      2. second layer_224: 21300448
+      2. second layer_459: 21300918
+      2. second layer_40: 21300080
+      2. second layer_324: 21300648
+      2. second layer_354: 21300708
+      2. second layer_208: 21300416
+      2. second layer_67: 21300134
+      2. second layer_178: 21300356
+      2. second layer_140: 21300280
+      2. second layer_290: 21300580
+      2. second layer_29: 21300058
+      2. second layer_279: 21300558
+      2. second layer_395: 21300790
+      2. second layer_452: 21300904
+      2. second layer_237: 21300474
+      2. second layer_301: 21300602
+      2. second layer_320: 21300640
+      2. second layer_43: 21300086
+      2. second layer_404: 21300808
+      2. second layer_468: 21300936
+      2. second layer_284: 21300568
+      2. second layer_183: 21300366
+      2. second layer_168: 21300336
+      2. second layer_271: 21300542
+      2. second layer_268: 21300536
+      2. second layer_357: 21300714
+      2. second layer_391: 21300782
+      2. second layer_180: 21300360
+      2. second layer_202: 21300404
+      2. second layer_304: 21300608
+      2. second layer_314: 21300628
+      2. second layer_367: 21300734
+      2. second layer_229: 21300458
+      2. second layer_239: 21300478
+      2. second layer_289: 21300578
+      2. second layer_176: 21300352
+      2. second layer_193: 21300386
+      2. second layer_145: 21300290
+      2. second layer_478: 21300956
+      2. second layer_151: 21300302
+      2. second layer_164: 21300328
+      2. second layer_351: 21300702
+      2. second layer_203: 21300406
+      2. second layer_216: 21300432
+      2. second layer_436: 21300872
+      2. second layer_75: 21300150
+      2. second layer_146: 21300292
+      2. second layer_39: 21300078
+      2. second layer_204: 21300408
+      2. second layer_112: 21300224
+      2. second layer_386: 21300772
+      2. second layer_331: 21300662
+      2. second layer_277: 21300554
+      2. second layer_412: 21300824
+      2. second layer_376: 21300752
+      2. second layer_473: 21300946
+      2. second layer_186: 21300372
+      2. second layer_369: 21300738
+      2. second layer_104: 21300208
+      2. second layer_443: 21300886
+      2. second layer_477: 21300954
+      2. second layer_159: 21300318
+      2. second layer_378: 21300756
+      2. second layer_455: 21300910
+      2. second layer_253: 21300506
+      2. second layer_321: 21300642
+      2. second layer_91: 21300182
+      2. second layer_275: 21300550
+      2. second layer_348: 21300696
+      2. second layer_424: 21300848
+      2. second layer_382: 21300764
+      2. second layer_173: 21300346
+      2. second layer_392: 21300784
+      2. second layer_56: 21300112
+      2. second layer_5: 21300010
+      2. second layer_0: 21300000
+      2. second layer_9: 21300018
+      2. second layer_192: 21300384
+      2. second layer_281: 21300562
+      2. second layer_350: 21300700
+      2. second layer_85: 21300170
+      2. second layer_232: 21300464
+      2. second layer_172: 21300344
+      2. second layer_74: 21300148
+      2. second layer_196: 21300392
+      2. second layer_405: 21300810
+      2. second layer_453: 21300906
+      2. second layer_261: 21300522
+      2. second layer_201: 21300402
+      2. second layer_223: 21300446
+      2. second layer_130: 21300260
+      2. second layer_228: 21300456
+      2. second layer_472: 21300944
+      2. second layer_403: 21300806
+      2. second layer_57: 21300114
+      2. second layer_250: 21300500
+      2. second layer_129: 21300258
+      2. second layer_197: 21300394
+      2. second layer_116: 21300232
+      2. second layer_294: 21300588
+      2. second layer_72: 21300144
+      2. second layer_213: 21300426
+      2. second layer_160: 21300320
+      2. second layer_263: 21300526
+      2. second layer_432: 21300864
+      2. second layer_272: 21300544
+      2. second layer_440: 21300880
+      2. second layer_269: 21300538
+      2. second layer_238: 21300476
+      2. second layer_18: 21300036
+      2. second layer_366: 21300732
+      2. second layer_111: 21300222
+      2. second layer_205: 21300410
+      2. second layer_77: 21300154
+      2. second layer_431: 21300862
+      2. second layer_220: 21300440
+      2. second layer_84: 21300168
+      2. second layer_187: 21300374
+      2. second layer_255: 21300510
+      2. second layer_83: 21300166
+      2. second layer_167: 21300334
+      2. second layer_422: 21300844
+      2. second layer_454: 21300908
+      2. second layer_71: 21300142
+      2. second layer_32: 21300064
+      2. second layer_433: 21300866
+      2. second layer_4: 21300008
+      2. second layer_244: 21300488
+      2. second layer_439: 21300878
+      2. second layer_199: 21300398
+      2. second layer_94: 21300188
+      2. second layer_79: 21300158
+      2. second layer_267: 21300534
+      2. second layer_260: 21300520
+      2. second layer_463: 21300926
+      2. second layer_411: 21300822
+      2. second layer_97: 21300194
+      2. second layer_370: 21300740
+      2. second layer_189: 21300378
+      2. second layer_416: 21300832
+      2. second layer_8: 21300016
+      2. second layer_297: 21300594
+      2. second layer_212: 21300424
+      2. second layer_55: 21300110
+      2. second layer_42: 21300084
+      2. second layer_300: 21300600
+      2. second layer_444: 21300888
+      2. second layer_123: 21300246
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

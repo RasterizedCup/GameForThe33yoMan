@@ -492,7 +492,7 @@ TextureImporter:
       213: 21300324
     second: 0. front layer_162
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -513,6 +513,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -522,8 +523,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -551,6 +552,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -578,6 +580,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -4024,6 +4038,170 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      0. front layer_31: 21300062
+      0. front layer_84: 21300168
+      0. front layer_161: 21300322
+      0. front layer_136: 21300272
+      0. front layer_134: 21300268
+      0. front layer_11: 21300022
+      0. front layer_12: 21300024
+      0. front layer_18: 21300036
+      0. front layer_44: 21300088
+      0. front layer_16: 21300032
+      0. front layer_26: 21300052
+      0. front layer_141: 21300282
+      0. front layer_97: 21300194
+      0. front layer_114: 21300228
+      0. front layer_5: 21300010
+      0. front layer_22: 21300044
+      0. front layer_89: 21300178
+      0. front layer_66: 21300132
+      0. front layer_67: 21300134
+      0. front layer_127: 21300254
+      0. front layer_14: 21300028
+      0. front layer_4: 21300008
+      0. front layer_3: 21300006
+      0. front layer_150: 21300300
+      0. front layer_160: 21300320
+      0. front layer_155: 21300310
+      0. front layer_144: 21300288
+      0. front layer_55: 21300110
+      0. front layer_40: 21300080
+      0. front layer_113: 21300226
+      0. front layer_59: 21300118
+      0. front layer_110: 21300220
+      0. front layer_75: 21300150
+      0. front layer_102: 21300204
+      0. front layer_10: 21300020
+      0. front layer_19: 21300038
+      0. front layer_54: 21300108
+      0. front layer_76: 21300152
+      0. front layer_6: 21300012
+      0. front layer_82: 21300164
+      0. front layer_99: 21300198
+      0. front layer_107: 21300214
+      0. front layer_156: 21300312
+      0. front layer_49: 21300098
+      0. front layer_135: 21300270
+      0. front layer_83: 21300166
+      0. front layer_30: 21300060
+      0. front layer_153: 21300306
+      0. front layer_37: 21300074
+      0. front layer_94: 21300188
+      0. front layer_143: 21300286
+      0. front layer_60: 21300120
+      0. front layer_98: 21300196
+      0. front layer_2: 21300004
+      0. front layer_42: 21300084
+      0. front layer_21: 21300042
+      0. front layer_69: 21300138
+      0. front layer_85: 21300170
+      0. front layer_90: 21300180
+      0. front layer_101: 21300202
+      0. front layer_20: 21300040
+      0. front layer_92: 21300184
+      0. front layer_27: 21300054
+      0. front layer_162: 21300324
+      0. front layer_104: 21300208
+      0. front layer_74: 21300148
+      0. front layer_158: 21300316
+      0. front layer_103: 21300206
+      0. front layer_93: 21300186
+      0. front layer_45: 21300090
+      0. front layer_47: 21300094
+      0. front layer_88: 21300176
+      0. front layer_109: 21300218
+      0. front layer_151: 21300302
+      0. front layer_91: 21300182
+      0. front layer_105: 21300210
+      0. front layer_0: 21300000
+      0. front layer_63: 21300126
+      0. front layer_38: 21300076
+      0. front layer_96: 21300192
+      0. front layer_64: 21300128
+      0. front layer_128: 21300256
+      0. front layer_112: 21300224
+      0. front layer_133: 21300266
+      0. front layer_95: 21300190
+      0. front layer_132: 21300264
+      0. front layer_9: 21300018
+      0. front layer_58: 21300116
+      0. front layer_46: 21300092
+      0. front layer_116: 21300232
+      0. front layer_154: 21300308
+      0. front layer_73: 21300146
+      0. front layer_24: 21300048
+      0. front layer_71: 21300142
+      0. front layer_148: 21300296
+      0. front layer_86: 21300172
+      0. front layer_57: 21300114
+      0. front layer_80: 21300160
+      0. front layer_17: 21300034
+      0. front layer_1: 21300002
+      0. front layer_117: 21300234
+      0. front layer_138: 21300276
+      0. front layer_126: 21300252
+      0. front layer_35: 21300070
+      0. front layer_77: 21300154
+      0. front layer_100: 21300200
+      0. front layer_137: 21300274
+      0. front layer_130: 21300260
+      0. front layer_81: 21300162
+      0. front layer_8: 21300016
+      0. front layer_56: 21300112
+      0. front layer_122: 21300244
+      0. front layer_33: 21300066
+      0. front layer_140: 21300280
+      0. front layer_142: 21300284
+      0. front layer_147: 21300294
+      0. front layer_62: 21300124
+      0. front layer_25: 21300050
+      0. front layer_43: 21300086
+      0. front layer_119: 21300238
+      0. front layer_120: 21300240
+      0. front layer_124: 21300248
+      0. front layer_15: 21300030
+      0. front layer_41: 21300082
+      0. front layer_23: 21300046
+      0. front layer_51: 21300102
+      0. front layer_118: 21300236
+      0. front layer_149: 21300298
+      0. front layer_68: 21300136
+      0. front layer_121: 21300242
+      0. front layer_131: 21300262
+      0. front layer_146: 21300292
+      0. front layer_123: 21300246
+      0. front layer_157: 21300314
+      0. front layer_36: 21300072
+      0. front layer_50: 21300100
+      0. front layer_115: 21300230
+      0. front layer_39: 21300078
+      0. front layer_159: 21300318
+      0. front layer_52: 21300104
+      0. front layer_111: 21300222
+      0. front layer_129: 21300258
+      0. front layer_70: 21300140
+      0. front layer_61: 21300122
+      0. front layer_145: 21300290
+      0. front layer_79: 21300158
+      0. front layer_152: 21300304
+      0. front layer_108: 21300216
+      0. front layer_32: 21300064
+      0. front layer_65: 21300130
+      0. front layer_72: 21300144
+      0. front layer_78: 21300156
+      0. front layer_13: 21300026
+      0. front layer_106: 21300212
+      0. front layer_125: 21300250
+      0. front layer_48: 21300096
+      0. front layer_53: 21300106
+      0. front layer_28: 21300056
+      0. front layer_29: 21300058
+      0. front layer_87: 21300174
+      0. front layer_139: 21300278
+      0. front layer_7: 21300014
+      0. front layer_34: 21300068
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
